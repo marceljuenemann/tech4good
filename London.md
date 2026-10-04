@@ -212,14 +212,17 @@ For CICs and charities.
 - 🟢 [**Artizen**](https://artizen.fund/) — Match-funding platform for projects at the frontier of art, science, technology and culture
 - 🟢 [**Crowdfunder**](https://www.crowdfunder.co.uk/) — UK crowdfunding platform popular with community and social impact projects
 
-## Spaces 🟡
+## Spaces
 
 > ℹ️ London has multiple spaces that focus on getting "changemakers" together, although non of these specialize in Tech for Good to my knowledge
 
 - 🟢 [**Impact Hub London**](https://london.impacthub.net/) — Coworking space in Euston with various programs for social enterprises
 - 🟢 [**The Conduit**](https://www.theconduit.com/) — Members' club in central London for a community of changemakers working towards a just and sustainable future
 - 🟢 [**Impact First**](https://www.impactfirst.org.uk/) — Shared workspace and events for people working on high-impact, EA-aligned projects
-- 🟢 [**Venture Café London**](https://venturecafelondon.org/) — Free weekly networking events, demos and workshops for innovators at One Triton Square
+- 🟢 [**Newspeak House**](https://newspeak.house/) — Residential college for civic technologists in Bethnal Green; hosts lots of community events
+- 🟡 [**The Trampery**](https://thetrampery.com/) — Purpose-led B Corp running workspaces across London for social enterprises and impact-driven businesses
+- 🟡 [**Sustainable Ventures**](https://www.sustainableventures.co.uk/) — Climate tech hub offering workspace, investment and venture support for sustainable startups
+- 🟡 [**Venture Café London**](https://venturecafelondon.org/) — Free weekly networking events, demos and workshops for innovators at One Triton Square
 
 ## Elsewhere in the UK 🟡
 

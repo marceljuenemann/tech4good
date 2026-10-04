@@ -6,7 +6,7 @@ Tech for Good resources, organizations and communities in London.
 
 🟢 I have first-hand or second-hand knowledge
 
-🟡 Added by AI. Might be out of date / dysfunct / not relevant to London
+🟡 Added by AI. Might be out of date / defunct / not relevant to London
 
 Maintained by [Marcel Juenemann](https://www.linkedin.com/in/marcel-juenemann/). To suggest additions or edits, send a Pull Request or [message me](mailto:techforgood@marcel.world).
 
@@ -153,7 +153,6 @@ Resources focused on specific causes.
 - 🟢 [**CAST**](https://www.wearecast.org.uk/) — Centre for the Acceleration of Social Technology; helps charities use digital to deliver their mission
 - 🟢 [**Catalyst**](https://www.thecatalyst.org.uk/) — Network supporting digital capability in the UK charity sector
 - 🟡 [**DataKind UK**](https://datakind.org.uk/) — Volunteer data scientists working on projects for charities and social enterprises
-- 🟡 [**Tech for Good Live**](https://techforgood.live/) — Podcast, events and community about tech for good in the UK
 - 🟡 [**Charity Digital**](https://www.charitydigital.org.uk/) — Resources, news and events on technology for charities
 - 🟢 [**TechSoup Connect**](https://events.techsoup.org/techsoup-connect-england-chapter/) — Volunteer-run tech for good meetups for nonprofits; the London chapter was formerly NetSquared London
 
@@ -241,7 +240,7 @@ Best for: ventures with a working solution that fits a challenge theme.
 
 ## Spaces
 
-> ℹ️ London has multiple spaces that focus on getting "changemakers" together, although non of these specialize in Tech for Good to my knowledge
+> ℹ️ London has multiple spaces that focus on getting "changemakers" together, although none of these specialize in Tech for Good to my knowledge
 
 - 🟢 [**Impact Hub London**](https://london.impacthub.net/) — Coworking space in Euston with various programs for social enterprises
 - 🟢 [**The Conduit**](https://www.theconduit.com/) — Members' club in central London for a community of changemakers working towards a just and sustainable future
@@ -254,6 +253,7 @@ Best for: ventures with a working solution that fits a challenge theme.
 
 ## Elsewhere in the UK
 
+- 🟡 [**Tech for Good Live**](https://techforgood.live/) — Podcast, events and community about tech for good in the UK
 - 🟢 [**Tech4Good South West**](https://tech4goodsouthwest.org/) — Community bringing together tech and social impact organisations across Bristol, Bath and the South West
 - 🟡 [**Tech for Good North East**](https://www.techforgoodne.org/) — Network for digital inclusion, adoption and innovation for social impact in the North East (formerly Social Tech North East)
 - 🟡 [**Tech for Good Scotland**](https://thirdsectorlab.co.uk/techforgood/) — Regular free events in Glasgow on responsible AI, civic tech and cross-sector collaboration, run by Third Sector Lab

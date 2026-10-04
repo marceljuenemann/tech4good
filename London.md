@@ -19,9 +19,6 @@ Criteria:
 
 ## TODO
 
-Add
-- Volunteer options
-
 Review
 - Review section by section
 - AI Review funding
@@ -45,6 +42,7 @@ Review
   - [Responsible AI & AI Safety](#responsible-ai--ai-safety)
   - [Decentralized Science](#decentralized-science)
 - [Job Boards](#job-boards)
+- [Volunteering](#volunteering-)
 - [Funding](#funding)
 - [General Changemaking & Altruism](#general-changemaking--altruism)
 - [Spaces](#spaces)
@@ -82,6 +80,7 @@ Communities focused on underrepresented groups in Tech
 ### General Changemaking & Altruism 🟡
 
 - 🟢 Impressionistic Map of Changemaking efforts: [https://secondrenaissance.net/map](https://secondrenaissance.net/map)
+- 🟢 [**Meta-Crisis 101**](https://www.sloww.co/meta-crisis-101/) — Introduction to the meta-crisis: the idea that many global crises share common underlying causes, drawing on Jonathan Rowson and Zak Stein
 - 🟢 [**Effective Altruism**](https://www.effectivealtruism.org/) — Global movement using evidence and reason to find the most effective ways to help others
   - 🟢 [**London EA Entrypoints**](https://london-ea-community-map.netlify.app/) — Directory of London EA communities, spaces and programmes; the best place to start locally
   - 🟢 [**London EA Events**](https://luma.com/calendar/cal-afqqBGvsVut8g8a) — EA UK's calendar of EA and EA-adjacent events across London
@@ -174,6 +173,14 @@ Resources focused on specific causes.
 - 🟢 [https://80000hours.org/](https://80000hours.org/) — Effective Altruism aligned, best for AI Safety roles
 - 🟢 [**High Impact Professionals**](https://www.highimpactprofessionals.org/) — Impact Accelerator Program, talent directory and job board for professionals moving into high-impact careers
 
+## Volunteering 🟡
+
+- 🟡 [**Reach Volunteering**](https://reachvolunteering.org.uk/) — UK platform matching skills-based volunteers with charities; lots of IT, data and digital roles
+- 🟡 [**Digital Boost**](https://digitalboost.org.uk/) — Volunteer as a mentor for small businesses and charities in areas like digital, marketing and strategy
+- 🟡 [**Code Club**](https://codeclub.org/) — Raspberry Pi Foundation programme; volunteer to help run free coding clubs for kids
+- 🟡 [**STEM Ambassadors**](https://www.stem.org.uk/stem-ambassadors) — Volunteer in schools and youth groups to inspire young people about STEM careers
+- 🟡 [**Catchafire**](https://www.catchafire.org/) — Skills-based volunteering platform matching professionals with nonprofits
+
 ## Funding 🟡
 
 - **Impact VCs** (for Limited Companies)
@@ -203,9 +210,7 @@ Resources focused on specific causes.
 
 Public
 
-## Beyond London 🟡
-
-### Elsewhere in the UK
+## Elsewhere in the UK 🟡
 
 - 🟡 [**Social Tech Trust**](https://socialtechtrust.org/) — UK funder and investor backing tech that tackles social problems
 - 🟡 [**UnLtd**](https://www.unltd.org.uk/) — Support and funding for social entrepreneurs across the UK
@@ -214,9 +219,10 @@ Public
 - 🟡 [**Tech4Good South West**](https://tech4goodsouthwest.org/) — Community bringing together tech and social impact organisations across Bristol, Bath and the South West
 - 🟡 [**Tech for Good North East**](https://www.techforgoodne.org/) — Network for digital inclusion, adoption and innovation for social impact in the North East (formerly Social Tech North East)
 - 🟡 [**Tech for Good Scotland**](https://thirdsectorlab.co.uk/techforgood/) — Regular free events in Glasgow on responsible AI, civic tech and cross-sector collaboration, run by Third Sector Lab
+- 🟡 [**Scottish Tech Army**](https://www.scottishtecharmy.org/) — Online volunteers delivering digital projects for charities and nonprofits
 - 🟡 [**Wellbeing Research Centre**](https://wellbeing.hmc.ox.ac.uk/) — Oxford research centre on wellbeing science, behind the World Happiness Report
 
-### Global & Online
+## Global & Online 🟡
 
 - 🟢 [**Tech To The Rescue**](https://www.techtotherescue.org/) — Global ecosystem connecting nonprofits with tech companies and funders, now focused on AI-powered social impact
 - 🟡 [**Fast Forward**](https://www.ffwd.org/) — Accelerator for tech nonprofits

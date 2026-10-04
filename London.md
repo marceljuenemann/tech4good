@@ -42,16 +42,17 @@ Review
   - [Charity & Nonprofit Tech](#charity--nonprofit-tech-)
   - [Accessibility](#accessibility-)
   - [Decentralized Tech / Blockchain for Good](#decentralized-tech--blockchain-for-good-)
-- [Job Boards](#job-boards-)
+- [Job Boards](#job-boards)
 - [Volunteering](#volunteering-)
 - [Funding](#funding-)
-  - [Impact VCs](#impact-vcs-)
-  - [Social Investment](#social-investment-)
   - [Grants](#grants-)
+  - [Prizes & Challenges](#prizes--challenges-)
+  - [Accelerators & Equity](#accelerators--equity-)
+  - [Social Investment](#social-investment-)
   - [Crowdfunding](#crowdfunding-)
 - [Spaces](#spaces)
 - [Elsewhere in the UK](#elsewhere-in-the-uk)
-- [Global Networks & Directories](#global-networks--directories-)
+- [Global Networks & Directories](#global-networks--directories)
 
 ## Communities
 
@@ -76,7 +77,6 @@ Review
   - 🟢 [**London EA Entrypoints**](https://london-ea-community-map.netlify.app/) — Directory of London EA communities, spaces and programmes; the best place to start locally
   - 🟢 [**London EA Events**](https://luma.com/calendar/cal-afqqBGvsVut8g8a) — EA UK's calendar of EA and EA-adjacent events across London
   - 🟢 [**London Effective Giving**](https://londoneffectivegiving.com/) — Socials, talks and coworking for people interested in effective giving
-  - 🟡 [**Ambitious Impact**](https://www.charityentrepreneurship.com/) — Incubator for evidence-driven nonprofit founders (formerly Charity Entrepreneurship)
 - 🟢 [**Social Enterprise UK**](https://www.socialenterprise.org.uk/) — National body for social enterprises, with guides and events
 - 🟢 [**Impact Connect**](https://impactconnect.compassio.co/) — Monthly 1-on-1 matching with other professionals working on meaningful challenges; online, supported by the World Economic Forum's Global Shapers Community
 
@@ -175,7 +175,7 @@ Resources focused on specific causes.
 - 🟢 [**DeSci London**](https://luma.com/user/DeSciLondon) — Events and community for decentralised science (DeSci) in London
 - 🟢 [**Logos Circle London**](https://luma.com/logos-london) — Monthly meetup of the Logos network discussing privacy, surveillance and decentralised infrastructure
 
-## Job Boards 🟡
+## Job Boards
 
 - 🟢 [**Escape the City**](https://www.escapethecity.org/) — Curated purposeful jobs, courses and events for professionals looking for more meaningful work
 - 🟢 [**80,000 Hours**](https://80000hours.org/) — Career advice and job board aligned with Effective Altruism; many AI safety roles
@@ -191,39 +191,52 @@ Resources focused on specific causes.
 - 🟡 [**Catchafire**](https://www.catchafire.org/) — Skills-based volunteering platform matching professionals with nonprofits
 - 🟡 [**For Good First Issue**](https://forgoodfirstissue.github.com/) — GitHub's directory of open-source social good projects looking for contributors; a good remote option
 
-## Funding 🟡
+## Funding
 
-### Impact VCs 🟡
+Not sure which legal structure fits your idea? Start with GOV.UK's [setting up a social enterprise](https://www.gov.uk/set-up-a-social-enterprise), which compares limited companies, CICs, co-operatives and charities.
 
-For limited companies.
+### Grants
+
+Best for: non-dilutive money at idea or pilot stage. Charities and CICs have the most options, but there are grants for limited companies too.
+
+- 🟡 [**GrantMatch**](https://www.grantmatch.co.uk/grants) — Searchable list of live UK grants, filterable by organisation type (charity, CIC, limited company), sector and region
+- 🟡 [**Funding Options for CICs**](https://www.cictools.co.uk/guides/cic-funding-grants) — Guide to grants and other funding sources for Community Interest Companies
+- 🟡 [**360Giving GrantNav**](https://grantnav.threesixtygiving.org/) — Searchable data on grants already awarded in the UK; useful for finding funders who back projects like yours
+- 🟡 [**Charity Excellence Funding Finder**](https://www.charityexcellence.co.uk/funding-finder-grants-directory/) — Free directory of UK grant funders for charities and community organisations
+- 🟡 [**UnLtd**](https://www.unltd.org.uk/) — Grants, coaching and mentoring for individual social entrepreneurs, even at idea stage; no organisation needed
+- 🟡 [**EA Funds**](https://funds.effectivealtruism.org/) — Effective Altruism grant funds (Long-Term Future, EA Infrastructure, Animal Welfare) that accept applications from individuals and early-stage projects
+
+### Accelerators & Equity
+
+Best for: founders who want a structured programme, or limited companies planning to grow and raise investment.
 
 - 🟢 [**Bethnal Green Ventures**](https://bethnalgreenventures.com/) — Early-stage tech for good investor; also runs regular [Tech for Good coffee](https://luma.com/bethnalgreenventures) events and a newsletter
 - 🟢 [**ImpactVC**](https://www.impactvc.co/) — Network for impact-focused venture capital; good starting point for finding impact VCs
+- 🟡 [**Social Tech Trust**](https://socialtechtrust.org/) — Impact investor backing early-stage ventures that use tech to benefit people, communities and the planet
+- 🟡 [**Ambitious Impact**](https://www.charityentrepreneurship.com/) — London-based incubator that trains founders and provides seed funding to launch new high-impact charities; you're matched with a researched charity idea rather than bringing your own (formerly Charity Entrepreneurship)
 
-### Social Investment 🟡
+### Social Investment
 
-Loans and investment for social enterprises and charities.
+Best for: social enterprises and charities with income that can repay a loan.
 
-- 🟢 [**Good Finance**](https://www.goodfinance.org.uk/) — Guides and a directory of social investors for charities and social enterprises
-- 🟢 [**Social Investment Business**](https://www.sibgroup.org.uk/) — Funding and investment for charities and social enterprises
-- 🟡 [**Social Tech Trust**](https://socialtechtrust.org/) — UK funder and investor backing tech that tackles social problems
-- 🟢 [**Inclusion London — Social Investment Funds**](https://www.inclusionlondon.org.uk/services-and-support/funding/social-investment-funds/) — List of social investment funds
+- 🟡 [**Good Finance**](https://www.goodfinance.org.uk/) — Guides, a 2-minute "Is it right for us?" check, and a directory of social investors for charities and social enterprises
+- 🟡 [**Social Investment Business**](https://www.sibgroup.org.uk/) — Funding and investment for charities and social enterprises
 
-### Grants 🟡
+### Crowdfunding & Funding Experiments
 
-For CICs and charities.
+Best for: projects with a community behind them, or testing demand.
 
-- 🟢 [**Introduction to Community Interest Companies**](https://www.gov.uk/government/publications/community-interest-companies-how-to-form-a-cic/community-interest-companies-guidance-chapters) — UK government guidance on setting up and running a CIC
-- 🟢 [**CIC Tools — Funding Options for CICs**](https://www.cictools.co.uk/guides/cic-funding-grants) — Guide to grants and other funding sources for CICs
-- 🟢 [**GrantMatch**](https://www.grantmatch.co.uk/grants/org-type/cic) — Searchable list of live UK grants open to CICs
-- 🟡 [**UnLtd**](https://www.unltd.org.uk/) — Support and funding for social entrepreneurs across the UK
-- 🟡 [**MIT Solve**](https://solve.mit.edu/) — Annual global challenges where tech-based social ventures apply with their solution; selected teams get prize funding and a year of support
-
-### Crowdfunding 🟡
-
+- 🟢 [**Crowdfunder**](https://www.crowdfunder.co.uk/) — UK crowdfunding platform popular with community and social impact projects
 - 🟢 [**Gitcoin**](https://gitcoin.co/) — Mostly focused on web3 infrastructure, but explores interesting new funding mechanisms like quadratic funding and has also funded more "real world" public good projects
 - 🟢 [**Artizen**](https://artizen.fund/) — Match-funding platform for projects at the frontier of art, science, technology and culture
-- 🟢 [**Crowdfunder**](https://www.crowdfunder.co.uk/) — UK crowdfunding platform popular with community and social impact projects
+- 🟡 [**Manifund**](https://manifund.org/) — Fast, transparent grants via regranting and community funding, mostly for EA and AI safety projects
+
+### Prizes & Challenges
+
+Best for: ventures with a working solution that fits a challenge theme.
+
+- 🟡 [**MIT Solve**](https://solve.mit.edu/) — Annual global challenges where tech-based social ventures apply with their solution; selected teams get prize funding and a year of support
+- 🟡 [**Challenge Works**](https://challengeworks.org/) — Nesta's challenge prize centre; lists open prizes for innovations in science, technology and society
 
 ## Spaces
 

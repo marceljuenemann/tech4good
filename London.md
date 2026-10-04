@@ -81,18 +81,17 @@ Review
 - 🟢 [**Impact Connect**](https://impactconnect.compassio.co/) — Monthly 1-on-1 matching with other professionals working on meaningful challenges; online, supported by the World Economic Forum's Global Shapers Community
 
 
-### Diversity & Inclusion in Tech 🟡
+### Diversity & Inclusion in Tech
 
 Communities focused on underrepresented groups in Tech
 
-- 🟡 [**Women in Data**](https://www.womenindata.co.uk/) — UK community for women in data, analytics and AI, with events and mentoring
-- 🟡 [**Code First Girls**](https://codefirstgirls.com/) — Free coding courses and community for women and non-binary people
-- 🟡 [**Tech Mums**](https://www.techmums.co/) — Free online modules helping mums build tech skills and confidence
-- 🟡 [**Coding Black Females**](https://codingblackfemales.com/) — The UK's largest community of Black women in tech
+- 🟢 [**FemTechConf**](https://femtechconf.com/london) — One-day summit for women in tech and allies, covering AI, engineering, product and leadership; 2027 date and venue to be announced
+- 🟢 [**Women in Data**](https://www.womenindata.co.uk/) — UK community for women in data, analytics and AI, with events and mentoring
+- 🟡 [**Out in Tech**](https://outintech.com/) — Global LGBTQ+ tech community
 - 🟡 [**Colorintech**](https://www.colorintech.org/) — London non-profit working to make tech more inclusive for ethnic minority talent
 - 🟡 [**UK Black Tech**](https://www.ukblacktech.com/) — Community and initiatives to make UK tech more diverse, starting with Black talent
-- 🟡 [**Queer Code London**](https://www.meetup.com/queer-code-london/) — Meetup for queer programmers with talks, workshops and socials
-- 🟡 [**Out in Tech**](https://outintech.com/) — Global LGBTQ+ tech community
+- 🟡 [**Coding Black Females**](https://codingblackfemales.com/) — The UK's largest community of Black women in tech
+- 🟡 [**Asians in Tech**](https://asiansintech.com/) — London-based network celebrating Asian talent in UK tech through the Top 100 Asian Stars list, awards and events
 - 🟡 [**Diversity in Tech**](https://www.diversityintech.co.uk/) — Career advice, employer case studies and jobs focused on diversity in UK tech
 
 ## Causes
@@ -170,10 +169,10 @@ Resources focused on specific causes.
 - 🟡 [**Accessibility London**](https://www.meetup.com/london-accessibility-meetup/) — Meetup for anyone interested in digital accessibility
 - 🟡 [**AbilityNet**](https://abilitynet.org.uk/) — Charity supporting disabled people with technology; runs the Tech4Good Awards
 
-### Decentralized Tech / Blockchain for Good 🟡
+### Decentralized Tech / Blockchain for Good
 
 - 🟢 [**DeSci London**](https://luma.com/user/DeSciLondon) — Events and community for decentralised science (DeSci) in London
-- 🟢 [**Logos Circle London**](https://luma.com/logos-london) — Monthly meetup of the Logos network discussing privacy, surveillance and decentralised infrastructure
+- 🟡 [**Logos Circle London**](https://luma.com/logos-london) — Monthly meetup of the Logos network discussing privacy, surveillance and decentralised infrastructure
 
 ## Job Boards
 
@@ -181,7 +180,7 @@ Resources focused on specific causes.
 - 🟢 [**80,000 Hours**](https://80000hours.org/) — Career advice and job board aligned with Effective Altruism; many AI safety roles
 - 🟢 [**High Impact Professionals**](https://www.highimpactprofessionals.org/) — Impact Accelerator Program, talent directory and job board for professionals moving into high-impact careers
 
-## Volunteering 🟡
+## Volunteering
 
 - 🟢 [**Tech To The Rescue**](https://www.techtotherescue.org/) — Global ecosystem connecting nonprofits with tech companies and funders, now focused on AI-powered social impact
 - 🟡 [**Reach Volunteering**](https://reachvolunteering.org.uk/) — UK platform matching skills-based volunteers with charities; lots of IT, data and digital roles

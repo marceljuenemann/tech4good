@@ -29,24 +29,29 @@ Review
 
 - [Communities](#communities)
   - [General Tech for Good](#general-tech-for-good)
-  - [Diversity & Inclusion in Tech](#diversity--inclusion-in-tech)
+  - [General Altruism](#general-altruism)
+  - [Diversity & Inclusion in Tech](#diversity--inclusion-in-tech-)
 - [Causes](#causes)
-  - [ClimateTech](#climatetech)
-  - [HealthTech](#healthtech)
+  - [Responsible AI & AI Safety](#responsible-ai--ai-safety-)
+  - [ClimateTech](#climatetech-)
+  - [HealthTech](#healthtech-)
   - [Mental Health & Wellbeing](#mental-health--wellbeing-)
-  - [FemTech](#femtech)
-  - [EdTech & Digital Inclusion](#edtech--digital-inclusion)
-  - [Civic Tech & Open Data](#civic-tech--open-data)
-  - [Charity & Nonprofit Tech](#charity--nonprofit-tech)
-  - [Accessibility](#accessibility)
-  - [Responsible AI & AI Safety](#responsible-ai--ai-safety)
-  - [Decentralized Science](#decentralized-science)
-- [Job Boards](#job-boards)
+  - [FemTech](#femtech-)
+  - [EdTech & Digital Inclusion](#edtech--digital-inclusion-)
+  - [Civic Tech & Open Data](#civic-tech--open-data-)
+  - [Charity & Nonprofit Tech](#charity--nonprofit-tech-)
+  - [Accessibility](#accessibility-)
+  - [Decentralized Tech / Blockchain for Good](#decentralized-tech--blockchain-for-good-)
+- [Job Boards](#job-boards-)
 - [Volunteering](#volunteering-)
-- [Funding](#funding)
-- [General Changemaking & Altruism](#general-changemaking--altruism)
+- [Funding](#funding-)
+  - [Impact VCs](#impact-vcs-)
+  - [Social Investment](#social-investment-)
+  - [Grants](#grants-)
+  - [Crowdfunding](#crowdfunding-)
 - [Spaces](#spaces)
-- [Beyond London](#beyond-london)
+- [Elsewhere in the UK](#elsewhere-in-the-uk)
+- [Global Networks & Directories](#global-networks--directories-)
 
 ## Communities
 
@@ -184,6 +189,7 @@ Resources focused on specific causes.
 - 🟡 [**Code Club**](https://codeclub.org/) — Raspberry Pi Foundation programme; volunteer to help run free coding clubs for kids
 - 🟡 [**STEM Ambassadors**](https://www.stem.org.uk/stem-ambassadors) — Volunteer in schools and youth groups to inspire young people about STEM careers
 - 🟡 [**Catchafire**](https://www.catchafire.org/) — Skills-based volunteering platform matching professionals with nonprofits
+- 🟡 [**For Good First Issue**](https://forgoodfirstissue.github.com/) — GitHub's directory of open-source social good projects looking for contributors; a good remote option
 
 ## Funding 🟡
 
@@ -211,6 +217,7 @@ For CICs and charities.
 - 🟢 [**CIC Tools — Funding Options for CICs**](https://www.cictools.co.uk/guides/cic-funding-grants) — Guide to grants and other funding sources for CICs
 - 🟢 [**GrantMatch**](https://www.grantmatch.co.uk/grants/org-type/cic) — Searchable list of live UK grants open to CICs
 - 🟡 [**UnLtd**](https://www.unltd.org.uk/) — Support and funding for social entrepreneurs across the UK
+- 🟡 [**MIT Solve**](https://solve.mit.edu/) — Annual global challenges where tech-based social ventures apply with their solution; selected teams get prize funding and a year of support
 
 ### Crowdfunding 🟡
 
@@ -238,9 +245,11 @@ For CICs and charities.
 - 🟡 [**Tech for Good Scotland**](https://thirdsectorlab.co.uk/techforgood/) — Regular free events in Glasgow on responsible AI, civic tech and cross-sector collaboration, run by Third Sector Lab
 - 🟡 [**Scottish Tech Army**](https://www.scottishtecharmy.org/) — Online volunteers delivering digital projects for charities and nonprofits
 
-## Global & Online 🟡
+## Global Networks & Directories
 
-- 🟡 [**Fast Forward**](https://www.ffwd.org/) — Accelerator for tech nonprofits
-- 🟡 [**Digital Public Goods Alliance**](https://digitalpublicgoods.net/) — Promotes open-source software, data and AI as digital public goods
+Places to discover more tech for good beyond this page.
+
+- 🟡 [**Civic Tech Field Guide**](https://civictech.guide/) — The world's largest curated directory of projects, tools and organisations using technology for democracy and the common good
+- 🟡 [**Digital Public Goods Alliance**](https://digitalpublicgoods.net/) — Promotes open-source software, data and AI as digital public goods; maintains a registry of them
 - 🟡 [**Code for All**](https://codeforall.org/) — Global network of civic tech organisations
-- 🟡 [**Techfugees**](https://www.techfugees.com/) — Global community building tech with and for displaced people
+- 🟡 [**Fast Forward**](https://www.ffwd.org/) — Accelerator for tech nonprofits (US-focused)

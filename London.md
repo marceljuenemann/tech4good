@@ -1,12 +1,12 @@
 # Tech for Good in London
 
-Tech for Good resources, organizations and communities in London.
-
 ## About this page
 
-🟢 **Relevance verified:** I either have first-hand knowledge or someone recommended this resource
+Tech for Good resources, organizations and communities in London.
 
-🟡 **Relevance not verified:**  Most likely based on an AI suggestion. Might be out of date / dysfunct / not relevant to London
+🟢 I have first-hand or second-hand knowledge
+
+🟡 Added by AI. Might be out of date / dysfunct / not relevant to London
 
 Maintained by [Marcel Juenemann](https://www.linkedin.com/in/marcel-juenemann/). To suggest additions or edits, send a Pull Request or [message me](mailto:techforgood@marcel.world).
 
@@ -50,11 +50,11 @@ Review
 
 ## Communities
 
-### General Tech for Good 🟡
+### General Tech for Good
 
-- 🟢 [**Tech for Good Community**](https://luma.com/tech-for-good) — New attempt by the author of this page to connect people interested in Tech for Good through regular in-person events (and more?)
+- 🟢 [**Tech for Good Community**](https://luma.com/tech-for-good) — Monthly in-person meetups and WhatsApp group with 100+ members
 - 🟢 [**Good Tech**](https://www.goodtech.ventures/) — Community for early stage tech-for-good startups run by [Catch22](https://www.catch-22.org.uk/)
-- 🟢 [**Founder Cowork Club**](https://luma.com/foundercoworkclub) — Deep work coworking sessions for purpose-driven founders working to make the world a better place
+- 🟢 **London Responsible Tech Breakfast Club** — Regular breakfast meetup on responsible tech and AI, organised by [Juhi Koré](https://www.linkedin.com/in/juhikore/) (reach out to join) and Adam Ingle
 - <details>
   <summary>No longer active groups</summary>
 
@@ -62,6 +62,19 @@ Review
   - 🟢 [**Tech for Good Organisers Network**](https://www.techforgoodorganisers.uk/) — UK-wide network of tech for good community organisers; its [map of member groups](https://squires.kumu.io/tech-for-good-uk?token=cFbBVVcxkN9lnXCq) dates from 2021 and its newsletter stopped in 2024
 
   </details>
+
+### General Altruism
+
+- 🟢 [**Second Renaissance Map**](https://secondrenaissance.net/map) — Impressionistic map of changemaking efforts and movements
+- 🟢 [**Meta-Crisis 101**](https://www.sloww.co/meta-crisis-101/) — Introduction to the meta-crisis: the idea that many global crises share common underlying causes, drawing on Jonathan Rowson and Zak Stein
+- 🟢 [**Effective Altruism**](https://www.effectivealtruism.org/) — Global movement using evidence and reason to find the most effective ways to help others
+  - 🟢 [**London EA Entrypoints**](https://london-ea-community-map.netlify.app/) — Directory of London EA communities, spaces and programmes; the best place to start locally
+  - 🟢 [**London EA Events**](https://luma.com/calendar/cal-afqqBGvsVut8g8a) — EA UK's calendar of EA and EA-adjacent events across London
+  - 🟢 [**London Effective Giving**](https://londoneffectivegiving.com/) — Socials, talks and coworking for people interested in effective giving
+  - 🟡 [**Ambitious Impact**](https://www.charityentrepreneurship.com/) — Incubator for evidence-driven nonprofit founders (formerly Charity Entrepreneurship)
+- 🟢 [**Social Enterprise UK**](https://www.socialenterprise.org.uk/) — National body for social enterprises, with guides and events
+- 🟢 [**Impact Connect**](https://impactconnect.compassio.co/) — Monthly 1-on-1 matching with other professionals working on meaningful challenges; online, supported by the World Economic Forum's Global Shapers Community
+
 
 ### Diversity & Inclusion in Tech 🟡
 
@@ -77,18 +90,6 @@ Communities focused on underrepresented groups in Tech
 - 🟡 [**Out in Tech**](https://outintech.com/) — Global LGBTQ+ tech community
 - 🟡 [**Diversity in Tech**](https://www.diversityintech.co.uk/) — Career advice, employer case studies and jobs focused on diversity in UK tech
 
-### General Changemaking & Altruism 🟡
-
-- 🟢 [**Second Renaissance Map**](https://secondrenaissance.net/map) — Impressionistic map of changemaking efforts and movements
-- 🟢 [**Meta-Crisis 101**](https://www.sloww.co/meta-crisis-101/) — Introduction to the meta-crisis: the idea that many global crises share common underlying causes, drawing on Jonathan Rowson and Zak Stein
-- 🟢 [**Effective Altruism**](https://www.effectivealtruism.org/) — Global movement using evidence and reason to find the most effective ways to help others
-  - 🟢 [**London EA Entrypoints**](https://london-ea-community-map.netlify.app/) — Directory of London EA communities, spaces and programmes; the best place to start locally
-  - 🟢 [**London EA Events**](https://luma.com/calendar/cal-afqqBGvsVut8g8a) — EA UK's calendar of EA and EA-adjacent events across London
-  - 🟢 [**London Effective Giving**](https://londoneffectivegiving.com/) — Socials, talks and coworking for people interested in effective giving
-  - 🟡 [**Ambitious Impact**](https://www.charityentrepreneurship.com/) — Incubator for evidence-driven nonprofit founders (formerly Charity Entrepreneurship)
-- 🟢 [**Impact Connect**](https://impactconnect.compassio.co/) — Monthly 1-on-1 matching with other professionals working on meaningful challenges; online, supported by the World Economic Forum's Global Shapers Community
-
-
 ## Causes
 
 Resources focused on specific causes.
@@ -100,7 +101,6 @@ Resources focused on specific causes.
 - 🟡 [**Ada Lovelace Institute**](https://www.adalovelaceinstitute.org/) — Independent research institute on making data and AI work for people and society
 - 🟡 [**The Alan Turing Institute**](https://www.turing.ac.uk/) — UK national institute for data science and AI, with public events
 - 🟢 [**LIaiSE**](https://liaiseai.xyz/) — London Interface for AI Safety; mentoring, events and reading lists for people moving into AI safety, plus helping researchers communicate with policymakers
-- 🟢 **London Responsible Tech Breakfast Club** — Regular breakfast meetup on responsible tech and AI, organised by [Juhi Koré](https://www.linkedin.com/in/juhikore/) (reach out to join) and Adam Ingle
 - 🟡 [**AI Security Institute**](https://www.aisi.gov.uk/) — UK government body researching AI safety; hiring regularly
 
 ### ClimateTech 🟡
@@ -111,6 +111,7 @@ Resources focused on specific causes.
 - 🟡 [**Climatebase**](https://climatebase.org/) — Climate job board with plenty of London roles
 - 🟡 [**Terra.do**](https://terra.do/) — Climate courses and a career community
 - 🟢 [**Green Software Foundation**](https://greensoftware.foundation/) — Non-profit creating standards, tooling and education for building software with lower carbon emissions
+- 🟡 [**Carbon13**](https://carbonthirteen.com/) — Venture builder for climate startups, based in Cambridge
 
 ### HealthTech 🟡
 
@@ -125,6 +126,8 @@ Resources focused on specific causes.
 - 🟡 [**Action for Happiness**](https://actionforhappiness.org/) — London-founded charity rooted in positive psychology; runs courses and free online events on wellbeing
 - 🟡 [**MQ Mental Health Research**](https://www.mqmentalhealth.org/) — Charity funding and promoting mental health research
 - 🟡 [**Wellcome — Mental Health**](https://wellcome.org/what-we-do/mental-health) — London-based foundation and one of the biggest funders of mental health research, including digital approaches
+- 🟡 [**Wellbeing Research Centre**](https://wellbeing.hmc.ox.ac.uk/) — Oxford research centre on wellbeing science, behind the World Happiness Report
+- 🟡 [**Happier Lives Institute**](https://www.happierlivesinstitute.org/) — Research and charity recommendations for improving global wellbeing
 
 ### FemTech 🟡
 
@@ -175,6 +178,7 @@ Resources focused on specific causes.
 
 ## Volunteering 🟡
 
+- 🟢 [**Tech To The Rescue**](https://www.techtotherescue.org/) — Global ecosystem connecting nonprofits with tech companies and funders, now focused on AI-powered social impact
 - 🟡 [**Reach Volunteering**](https://reachvolunteering.org.uk/) — UK platform matching skills-based volunteers with charities; lots of IT, data and digital roles
 - 🟡 [**Digital Boost**](https://digitalboost.org.uk/) — Volunteer as a mentor for small businesses and charities in areas like digital, marketing and strategy
 - 🟡 [**Code Club**](https://codeclub.org/) — Raspberry Pi Foundation programme; volunteer to help run free coding clubs for kids
@@ -196,6 +200,7 @@ Loans and investment for social enterprises and charities.
 
 - 🟢 [**Good Finance**](https://www.goodfinance.org.uk/) — Guides and a directory of social investors for charities and social enterprises
 - 🟢 [**Social Investment Business**](https://www.sibgroup.org.uk/) — Funding and investment for charities and social enterprises
+- 🟡 [**Social Tech Trust**](https://socialtechtrust.org/) — UK funder and investor backing tech that tackles social problems
 - 🟢 [**Inclusion London — Social Investment Funds**](https://www.inclusionlondon.org.uk/services-and-support/funding/social-investment-funds/) — List of social investment funds
 
 ### Grants 🟡
@@ -205,6 +210,7 @@ For CICs and charities.
 - 🟢 [**Introduction to Community Interest Companies**](https://www.gov.uk/government/publications/community-interest-companies-how-to-form-a-cic/community-interest-companies-guidance-chapters) — UK government guidance on setting up and running a CIC
 - 🟢 [**CIC Tools — Funding Options for CICs**](https://www.cictools.co.uk/guides/cic-funding-grants) — Guide to grants and other funding sources for CICs
 - 🟢 [**GrantMatch**](https://www.grantmatch.co.uk/grants/org-type/cic) — Searchable list of live UK grants open to CICs
+- 🟡 [**UnLtd**](https://www.unltd.org.uk/) — Support and funding for social entrepreneurs across the UK
 
 ### Crowdfunding 🟡
 
@@ -220,27 +226,21 @@ For CICs and charities.
 - 🟢 [**The Conduit**](https://www.theconduit.com/) — Members' club in central London for a community of changemakers working towards a just and sustainable future
 - 🟢 [**Impact First**](https://www.impactfirst.org.uk/) — Shared workspace and events for people working on high-impact, EA-aligned projects
 - 🟢 [**Newspeak House**](https://newspeak.house/) — Residential college for civic technologists in Bethnal Green; hosts lots of community events
+- 🟢 [**Founder Cowork Club**](https://luma.com/foundercoworkclub) — Deep work coworking sessions for purpose-driven founders working to make the world a better place. Meeting at &Soul Shoreditch.
 - 🟡 [**The Trampery**](https://thetrampery.com/) — Purpose-led B Corp running workspaces across London for social enterprises and impact-driven businesses
 - 🟡 [**Sustainable Ventures**](https://www.sustainableventures.co.uk/) — Climate tech hub offering workspace, investment and venture support for sustainable startups
 - 🟡 [**Venture Café London**](https://venturecafelondon.org/) — Free weekly networking events, demos and workshops for innovators at One Triton Square
 
-## Elsewhere in the UK 🟡
+## Elsewhere in the UK
 
-- 🟡 [**Social Tech Trust**](https://socialtechtrust.org/) — UK funder and investor backing tech that tackles social problems
-- 🟡 [**UnLtd**](https://www.unltd.org.uk/) — Support and funding for social entrepreneurs across the UK
-- 🟡 [**Social Enterprise UK**](https://www.socialenterprise.org.uk/) — National body for social enterprises, with guides and events
-- 🟡 [**Carbon13**](https://carbonthirteen.com/) — Venture builder for climate startups, based in Cambridge
-- 🟡 [**Tech4Good South West**](https://tech4goodsouthwest.org/) — Community bringing together tech and social impact organisations across Bristol, Bath and the South West
+- 🟢 [**Tech4Good South West**](https://tech4goodsouthwest.org/) — Community bringing together tech and social impact organisations across Bristol, Bath and the South West
 - 🟡 [**Tech for Good North East**](https://www.techforgoodne.org/) — Network for digital inclusion, adoption and innovation for social impact in the North East (formerly Social Tech North East)
 - 🟡 [**Tech for Good Scotland**](https://thirdsectorlab.co.uk/techforgood/) — Regular free events in Glasgow on responsible AI, civic tech and cross-sector collaboration, run by Third Sector Lab
 - 🟡 [**Scottish Tech Army**](https://www.scottishtecharmy.org/) — Online volunteers delivering digital projects for charities and nonprofits
-- 🟡 [**Wellbeing Research Centre**](https://wellbeing.hmc.ox.ac.uk/) — Oxford research centre on wellbeing science, behind the World Happiness Report
 
 ## Global & Online 🟡
 
-- 🟢 [**Tech To The Rescue**](https://www.techtotherescue.org/) — Global ecosystem connecting nonprofits with tech companies and funders, now focused on AI-powered social impact
 - 🟡 [**Fast Forward**](https://www.ffwd.org/) — Accelerator for tech nonprofits
 - 🟡 [**Digital Public Goods Alliance**](https://digitalpublicgoods.net/) — Promotes open-source software, data and AI as digital public goods
 - 🟡 [**Code for All**](https://codeforall.org/) — Global network of civic tech organisations
 - 🟡 [**Techfugees**](https://www.techfugees.com/) — Global community building tech with and for displaced people
-- 🟡 [**Happier Lives Institute**](https://www.happierlivesinstitute.org/) — Research and charity recommendations for improving global wellbeing

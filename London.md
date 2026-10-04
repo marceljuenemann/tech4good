@@ -58,8 +58,8 @@ Review
 - <details>
   <summary>No longer active groups</summary>
 
-  - 🟢 [Tech for Good Meetup group](https://www.meetup.com/techforgood/)
-  - 🟢 [Tech for Good Organisers Network](https://www.techforgoodorganisers.uk/) — UK-wide network of tech for good community organisers; its [map of member groups](https://squires.kumu.io/tech-for-good-uk?token=cFbBVVcxkN9lnXCq) dates from 2021 and its newsletter stopped in 2024
+  - 🟢 [**Tech for Good Meetup**](https://www.meetup.com/techforgood/) — London's original Tech for Good meetup with over 9,000 members, coordinated by Bethnal Green Ventures and CAST
+  - 🟢 [**Tech for Good Organisers Network**](https://www.techforgoodorganisers.uk/) — UK-wide network of tech for good community organisers; its [map of member groups](https://squires.kumu.io/tech-for-good-uk?token=cFbBVVcxkN9lnXCq) dates from 2021 and its newsletter stopped in 2024
 
   </details>
 
@@ -79,7 +79,7 @@ Communities focused on underrepresented groups in Tech
 
 ### General Changemaking & Altruism 🟡
 
-- 🟢 Impressionistic Map of Changemaking efforts: [https://secondrenaissance.net/map](https://secondrenaissance.net/map)
+- 🟢 [**Second Renaissance Map**](https://secondrenaissance.net/map) — Impressionistic map of changemaking efforts and movements
 - 🟢 [**Meta-Crisis 101**](https://www.sloww.co/meta-crisis-101/) — Introduction to the meta-crisis: the idea that many global crises share common underlying causes, drawing on Jonathan Rowson and Zak Stein
 - 🟢 [**Effective Altruism**](https://www.effectivealtruism.org/) — Global movement using evidence and reason to find the most effective ways to help others
   - 🟢 [**London EA Entrypoints**](https://london-ea-community-map.netlify.app/) — Directory of London EA communities, spaces and programmes; the best place to start locally
@@ -164,13 +164,13 @@ Resources focused on specific causes.
 
 ### Decentralized Tech / Blockchain for Good 🟡
 
-- 🟢 [**DeSci London**](https://luma.com/user/DeSciLondon)
+- 🟢 [**DeSci London**](https://luma.com/user/DeSciLondon) — Events and community for decentralised science (DeSci) in London
 - 🟢 [**Logos Circle London**](https://luma.com/logos-london) — Monthly meetup of the Logos network discussing privacy, surveillance and decentralised infrastructure
 
 ## Job Boards 🟡
 
-- 🟢 [https://www.escapethecity.org/](https://www.escapethecity.org/)
-- 🟢 [https://80000hours.org/](https://80000hours.org/) — Effective Altruism aligned, best for AI Safety roles
+- 🟢 [**Escape the City**](https://www.escapethecity.org/) — Curated purposeful jobs, courses and events for professionals looking for more meaningful work
+- 🟢 [**80,000 Hours**](https://80000hours.org/) — Career advice and job board aligned with Effective Altruism; many AI safety roles
 - 🟢 [**High Impact Professionals**](https://www.highimpactprofessionals.org/) — Impact Accelerator Program, talent directory and job board for professionals moving into high-impact careers
 
 ## Volunteering 🟡
@@ -183,32 +183,43 @@ Resources focused on specific causes.
 
 ## Funding 🟡
 
-- **Impact VCs** (for Limited Companies)
-  - 🟢 [http://bethnalgreenventures.com/](http://bethnalgreenventures.com/) — They also run regular [Tech for Good coffee](https://luma.com/bethnalgreenventures) events and a newsletter
-  - 🟢 [https://www.impactvc.co/](https://www.impactvc.co/) has a list of various Impact VCs
-- **Social Investment** (loans and investment for social enterprises and charities)
-  - 🟢 [https://www.goodfinance.org.uk/](https://www.goodfinance.org.uk/)
-  - 🟢 [https://www.sibgroup.org.uk/](https://www.sibgroup.org.uk/)
-  - 🟢 [https://www.inclusionlondon.org.uk/services-and-support/funding/social-investment-funds/](https://www.inclusionlondon.org.uk/services-and-support/funding/social-investment-funds/)
-- **Grants** (for CICs and charities)
-  - 🟢 [Introduction to Community Interest Companies](https://www.gov.uk/government/publications/community-interest-companies-how-to-form-a-cic/community-interest-companies-guidance-chapters)
-  - 🟢 [Funding options for CICs](https://www.cictools.co.uk/guides/cic-funding-grants)
-  - 🟢 [Grant Match](https://www.grantmatch.co.uk/grants/org-type/cic)
-- **Crowdfunding**
-  - 🟢 [GitCoin](https://gitcoin.co/) — while mostly focused on web3 infrastructure, it explores interesting new funding mechanisms like quadratic funding and has also funded more "real world" public good projects
-  - 🟢 [Artizen](https://artizen.fund/) — Match-funding platform for projects at the frontier of art, science, technology and culture
-  - 🟢 [https://www.crowdfunder.co.uk/](https://www.crowdfunder.co.uk/)
+### Impact VCs 🟡
+
+For limited companies.
+
+- 🟢 [**Bethnal Green Ventures**](https://bethnalgreenventures.com/) — Early-stage tech for good investor; also runs regular [Tech for Good coffee](https://luma.com/bethnalgreenventures) events and a newsletter
+- 🟢 [**ImpactVC**](https://www.impactvc.co/) — Network for impact-focused venture capital; good starting point for finding impact VCs
+
+### Social Investment 🟡
+
+Loans and investment for social enterprises and charities.
+
+- 🟢 [**Good Finance**](https://www.goodfinance.org.uk/) — Guides and a directory of social investors for charities and social enterprises
+- 🟢 [**Social Investment Business**](https://www.sibgroup.org.uk/) — Funding and investment for charities and social enterprises
+- 🟢 [**Inclusion London — Social Investment Funds**](https://www.inclusionlondon.org.uk/services-and-support/funding/social-investment-funds/) — List of social investment funds
+
+### Grants 🟡
+
+For CICs and charities.
+
+- 🟢 [**Introduction to Community Interest Companies**](https://www.gov.uk/government/publications/community-interest-companies-how-to-form-a-cic/community-interest-companies-guidance-chapters) — UK government guidance on setting up and running a CIC
+- 🟢 [**CIC Tools — Funding Options for CICs**](https://www.cictools.co.uk/guides/cic-funding-grants) — Guide to grants and other funding sources for CICs
+- 🟢 [**GrantMatch**](https://www.grantmatch.co.uk/grants/org-type/cic) — Searchable list of live UK grants open to CICs
+
+### Crowdfunding 🟡
+
+- 🟢 [**Gitcoin**](https://gitcoin.co/) — Mostly focused on web3 infrastructure, but explores interesting new funding mechanisms like quadratic funding and has also funded more "real world" public good projects
+- 🟢 [**Artizen**](https://artizen.fund/) — Match-funding platform for projects at the frontier of art, science, technology and culture
+- 🟢 [**Crowdfunder**](https://www.crowdfunder.co.uk/) — UK crowdfunding platform popular with community and social impact projects
 
 ## Spaces 🟡
 
 > ℹ️ London has multiple spaces that focus on getting "changemakers" together, although non of these specialize in Tech for Good to my knowledge
 
-- 🟢 [Impact Hub](https://impacthub.net/) — Coworking space in Euston with various programs for social enterprises
-- The Conduit
-- 🟢 [Impact First](https://www.impactfirst.org.uk/) — Shared workspace and events for people working on high-impact, EA-aligned projects
-- Venture Cafe
-
-Public
+- 🟢 [**Impact Hub London**](https://london.impacthub.net/) — Coworking space in Euston with various programs for social enterprises
+- 🟢 [**The Conduit**](https://www.theconduit.com/) — Members' club in central London for a community of changemakers working towards a just and sustainable future
+- 🟢 [**Impact First**](https://www.impactfirst.org.uk/) — Shared workspace and events for people working on high-impact, EA-aligned projects
+- 🟢 [**Venture Café London**](https://venturecafelondon.org/) — Free weekly networking events, demos and workshops for innovators at One Triton Square
 
 ## Elsewhere in the UK 🟡
 

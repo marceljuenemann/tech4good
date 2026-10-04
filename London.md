@@ -16,40 +16,32 @@ Criteria:
 * Prefer organizations / collections of resources. Avoid specific listing specific companies / startups
 -->
 
-
-## TODO
-
-Review
-- Review section by section
-- AI Review funding
-
-- Rebuild ToC
-
 ## Table of Contents
 
 - [Communities](#communities)
   - [General Tech for Good](#general-tech-for-good)
   - [General Altruism](#general-altruism)
-  - [Diversity & Inclusion in Tech](#diversity--inclusion-in-tech-)
+  - [Diversity & Inclusion in Tech](#diversity--inclusion-in-tech)
 - [Causes](#causes)
-  - [Responsible AI & AI Safety](#responsible-ai--ai-safety-)
-  - [ClimateTech](#climatetech-)
-  - [HealthTech](#healthtech-)
-  - [Mental Health & Wellbeing](#mental-health--wellbeing-)
-  - [FemTech](#femtech-)
-  - [EdTech & Digital Inclusion](#edtech--digital-inclusion-)
-  - [Civic Tech & Open Data](#civic-tech--open-data-)
-  - [Charity & Nonprofit Tech](#charity--nonprofit-tech-)
-  - [Accessibility](#accessibility-)
-  - [Decentralized Tech / Blockchain for Good](#decentralized-tech--blockchain-for-good-)
+  - [Responsible AI & AI Safety](#responsible-ai--ai-safety)
+  - [ClimateTech](#climatetech)
+  - [HealthTech](#healthtech)
+  - [Mental Health & Wellbeing](#mental-health--wellbeing)
+  - [FemTech](#femtech)
+  - [EdTech & Digital Inclusion](#edtech--digital-inclusion)
+  - [Civic Tech & Open Data](#civic-tech--open-data)
+  - [Charity & Nonprofit Tech](#charity--nonprofit-tech)
+  - [Accessibility](#accessibility)
+  - [Digital Rights & Online Safety](#digital-rights--online-safety)
+  - [Decentralized Tech / Blockchain for Good](#decentralized-tech--blockchain-for-good)
 - [Job Boards](#job-boards)
-- [Volunteering](#volunteering-)
-- [Funding](#funding-)
-  - [Grants](#grants-)
-  - [Prizes & Challenges](#prizes--challenges-)
-  - [Accelerators & Equity](#accelerators--equity-)
-  - [Social Investment](#social-investment-)
-  - [Crowdfunding](#crowdfunding-)
+- [Volunteering](#volunteering)
+- [Funding](#funding)
+  - [Grants](#grants)
+  - [Accelerators & Equity](#accelerators--equity)
+  - [Social Investment](#social-investment)
+  - [Crowdfunding & Funding Experiments](#crowdfunding--funding-experiments)
+  - [Prizes & Challenges](#prizes--challenges)
 - [Spaces](#spaces)
 - [Elsewhere in the UK](#elsewhere-in-the-uk)
 - [Global Networks & Directories](#global-networks--directories)
@@ -98,76 +90,86 @@ Communities focused on underrepresented groups in Tech
 
 Resources focused on specific causes.
 
-### Responsible AI & AI Safety 🟡
+### Responsible AI & AI Safety
 
-- 🟡 [**LISA**](https://www.safeai.org.uk/) — London Initiative for Safe AI; coworking and research hub for AI safety in Shoreditch
-- 🟡 [**BlueDot Impact**](https://bluedot.org/) — Free courses on AI safety and governance, based in London
-- 🟡 [**Ada Lovelace Institute**](https://www.adalovelaceinstitute.org/) — Independent research institute on making data and AI work for people and society
-- 🟡 [**The Alan Turing Institute**](https://www.turing.ac.uk/) — UK national institute for data science and AI, with public events
 - 🟢 [**LIaiSE**](https://liaiseai.xyz/) — London Interface for AI Safety; mentoring, events and reading lists for people moving into AI safety, plus helping researchers communicate with policymakers
+- 🟢 [**LISA**](https://www.safeai.org.uk/) — London Initiative for Safe AI; coworking and research hub for AI safety in Shoreditch
+- 🟡 [**BlueDot Impact**](https://bluedot.org/) — Free courses on AI safety and governance, based in London
 - 🟡 [**AI Security Institute**](https://www.aisi.gov.uk/) — UK government body researching AI safety; hiring regularly
+- 🟡 [**Ada Lovelace Institute**](https://www.adalovelaceinstitute.org/) — Independent research institute on making data and AI work for people and society
 
-### ClimateTech 🟡
+### ClimateTech
 
-- 🟡 [**London Climate Action Week**](https://www.londonclimateactionweek.org/) — Annual week of climate events across the city, many of them tech-focused
+- 🟢 [**London Climate Action Week**](https://www.londonclimateactionweek.org/) — Annual week of climate events across the city, many of them tech-focused
+- 🟢 [**Green Software Foundation**](https://greensoftware.foundation/) — Non-profit creating standards, tooling and education for building software with lower carbon emissions
 - 🟡 [**ClimateAction.tech**](https://climateaction.tech/) — Global community of tech workers working on climate, with an active Slack
 - 🟡 [**Work on Climate**](https://workonclimate.org/) — Slack community and resources for people moving into climate careers, with London members and meetups
 - 🟡 [**Climatebase**](https://climatebase.org/) — Climate job board with plenty of London roles
 - 🟡 [**Terra.do**](https://terra.do/) — Climate courses and a career community
-- 🟢 [**Green Software Foundation**](https://greensoftware.foundation/) — Non-profit creating standards, tooling and education for building software with lower carbon emissions
-- 🟡 [**Carbon13**](https://carbonthirteen.com/) — Venture builder for climate startups, based in Cambridge
+- 🟢 [**Carbon13**](https://carbonthirteen.com/) — Venture builder for climate startups, based in Cambridge
 
-### HealthTech 🟡
+### HealthTech
 
 - 🟡 [**DigitalHealth.London**](https://digitalhealth.london/) — Accelerator and programmes connecting digital health companies with the NHS in London
 - 🟡 [**One HealthTech**](https://www.onehealthtech.com/) — Community promoting diversity and inclusion in health innovation, founded in London
 - 🟡 [**MedCity**](https://medcityhq.com/) — London's life sciences and healthtech cluster organisation
 - 🟡 [**Health Innovation Network**](https://healthinnovationnetwork.com/) — South London's health innovation network, supporting adoption of new tech in the NHS
 
-### Mental Health & Wellbeing 🟡
+### Mental Health & Wellbeing
 
+> ℹ️ Most of these organisations aren't tech-focused themselves. Tech in mental health seems to come mostly from individual companies (e.g. therapy and wellbeing apps), which this page doesn't list. Suggestions for tech-focused communities or organisations are very welcome!
+
+- 🟢 [**Action for Happiness**](https://actionforhappiness.org/) — London-founded charity rooted in positive psychology; runs courses and free online events on wellbeing
+- 🟢 [**Happier Lives Institute**](https://www.happierlivesinstitute.org/) — Research and charity recommendations for improving global wellbeing
 - 🟡 [**Mental Health Innovations**](https://mentalhealthinnovations.org/) — Digital mental health charity behind [Shout 85258](https://giveusashout.org/), the UK's 24/7 crisis text line
-- 🟡 [**Action for Happiness**](https://actionforhappiness.org/) — London-founded charity rooted in positive psychology; runs courses and free online events on wellbeing
 - 🟡 [**MQ Mental Health Research**](https://www.mqmentalhealth.org/) — Charity funding and promoting mental health research
 - 🟡 [**Wellcome — Mental Health**](https://wellcome.org/what-we-do/mental-health) — London-based foundation and one of the biggest funders of mental health research, including digital approaches
 - 🟡 [**Wellbeing Research Centre**](https://wellbeing.hmc.ox.ac.uk/) — Oxford research centre on wellbeing science, behind the World Happiness Report
-- 🟡 [**Happier Lives Institute**](https://www.happierlivesinstitute.org/) — Research and charity recommendations for improving global wellbeing
 
-### FemTech 🟡
+### FemTech
 
 - 🟡 [**FemTech Lab**](https://femtechlab.com/) — London-born accelerator and platform for founders in women's health
 - 🟡 [**Women of Wearables**](https://www.womenofwearables.com/) — Community supporting women in wearables, healthtech and femtech
 - 🟡 [**FemTech Insider**](https://www.femtechinsider.com/) — News and analysis on the femtech industry
 
-### EdTech & Digital Inclusion 🟡
+### EdTech & Digital Inclusion
 
 - 🟡 [**Bett**](https://www.bettshow.com/) — Big annual education technology show at ExCeL London
 - 🟡 [**Founders and Coders**](https://www.foundersandcoders.com/) — Free, peer-led coding bootcamp in London with a Tech for Good focus
 - 🟡 [**CodeYourFuture**](https://www.codeyourfuture.io/) — Free coding training for refugees and people from low-income backgrounds
-- 🟡 [**Ada, the National College for Digital Skills**](https://www.ada.ac.uk/) — Sixth form college and apprenticeships aimed at diversifying tech talent
+- 🟢 [**Ada, the National College for Digital Skills**](https://www.ada.ac.uk/) — Sixth form college and apprenticeships aimed at diversifying tech talent
 
-### Civic Tech & Open Data 🟡
+### Civic Tech & Open Data
 
-- 🟡 [**Newspeak House**](https://newspeak.house/) — Residential college for civic technologists in Bethnal Green; hosts lots of community events
+- 🟢 [**Newspeak House**](https://newspeak.house/) — Residential college for civic technologists in Bethnal Green; hosts lots of community events
 - 🟡 [**mySociety**](https://www.mysociety.org/) — Civic tech charity behind TheyWorkForYou, FixMyStreet and WhatDoTheyKnow
 - 🟡 [**Democracy Club**](https://democracyclub.org.uk/) — Volunteer-powered open data about UK elections and candidates
 - 🟡 [**Open Data Institute**](https://theodi.org/) — Non-profit promoting open data, based in King's Cross
 - 🟡 [**Open Knowledge Foundation**](https://okfn.org/) — Global open knowledge non-profit, headquartered in London
 - 🟢 [**Movement Research Unit**](https://www.mvmtresearch.org/) — Free open-source research support for movement groups and unions; volunteers with research or tech skills can join in London or online
 
-### Charity & Nonprofit Tech 🟡
+### Charity & Nonprofit Tech
 
-- 🟡 [**CAST**](https://www.wearecast.org.uk/) — Centre for the Acceleration of Social Technology; helps charities use digital to deliver their mission
-- 🟡 [**Catalyst**](https://www.thecatalyst.org.uk/) — Network supporting digital capability in the UK charity sector
+- 🟢 [**CAST**](https://www.wearecast.org.uk/) — Centre for the Acceleration of Social Technology; helps charities use digital to deliver their mission
+- 🟢 [**Catalyst**](https://www.thecatalyst.org.uk/) — Network supporting digital capability in the UK charity sector
 - 🟡 [**DataKind UK**](https://datakind.org.uk/) — Volunteer data scientists working on projects for charities and social enterprises
 - 🟡 [**Tech for Good Live**](https://techforgood.live/) — Podcast, events and community about tech for good in the UK
 - 🟡 [**Charity Digital**](https://www.charitydigital.org.uk/) — Resources, news and events on technology for charities
-- 🟡 [**TechSoup Connect**](https://events.techsoup.org/techsoup-connect-england-chapter/) — Volunteer-run tech for good meetups for nonprofits; the London chapter was formerly NetSquared London
+- 🟢 [**TechSoup Connect**](https://events.techsoup.org/techsoup-connect-england-chapter/) — Volunteer-run tech for good meetups for nonprofits; the London chapter was formerly NetSquared London
 
-### Accessibility 🟡
+### Accessibility
 
-- 🟡 [**Accessibility London**](https://www.meetup.com/london-accessibility-meetup/) — Meetup for anyone interested in digital accessibility
 - 🟡 [**AbilityNet**](https://abilitynet.org.uk/) — Charity supporting disabled people with technology; runs the Tech4Good Awards
+- 🟡 [**Global Disability Innovation Hub**](https://www.disabilityinnovation.com/) — Research and innovation centre for assistive technology and disability inclusion, based at Queen Elizabeth Olympic Park with UCL
+- 🟡 [**Helen Hamlyn Centre for Design**](https://www.rca.ac.uk/research-innovation/research-centres/helen-hamlyn-centre/) — Royal College of Art centre for inclusive design, working with government, business and charities
+- 🟡 [**Business Disability Forum**](https://businessdisabilityforum.org.uk/) — Membership body helping employers become more disability-inclusive, including in technology
+
+### Digital Rights & Online Safety
+
+- 🟡 [**Open Rights Group**](https://www.openrightsgroup.org/) — The UK's largest grassroots digital rights organisation, campaigning for privacy and free speech online
+- 🟡 [**Privacy International**](https://privacyinternational.org/) — London-based charity working at the intersection of technology and human rights
+- 🟢 [**Full Fact**](https://fullfact.org/) — Fact-checking charity that builds its own AI tools to spot and tackle misinformation
+- 🟡 [**5Rights Foundation**](https://5rightsfoundation.com/) — Campaigns for digital products and services designed with children's wellbeing in mind
 
 ### Decentralized Tech / Blockchain for Good
 

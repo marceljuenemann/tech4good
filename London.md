@@ -20,7 +20,6 @@ Criteria:
 ## TODO
 
 Add
-- Other tech4good networks from that website
 - Volunteer options
 
 Review
@@ -62,7 +61,7 @@ Review
   <summary>No longer active groups</summary>
 
   - 🟢 [Tech for Good Meetup group](https://www.meetup.com/techforgood/)
-  - 🟢 [https://www.techforgoodorganisers.uk/](https://www.techforgoodorganisers.uk/)
+  - 🟢 [Tech for Good Organisers Network](https://www.techforgoodorganisers.uk/) — UK-wide network of tech for good community organisers; its [map of member groups](https://squires.kumu.io/tech-for-good-uk?token=cFbBVVcxkN9lnXCq) dates from 2021 and its newsletter stopped in 2024
 
   </details>
 
@@ -83,7 +82,11 @@ Communities focused on underrepresented groups in Tech
 ### General Changemaking & Altruism 🟡
 
 - 🟢 Impressionistic Map of Changemaking efforts: [https://secondrenaissance.net/map](https://secondrenaissance.net/map)
-- Effective Altruism
+- 🟢 [**Effective Altruism**](https://www.effectivealtruism.org/) — Global movement using evidence and reason to find the most effective ways to help others
+  - 🟢 [**London EA Entrypoints**](https://london-ea-community-map.netlify.app/) — Directory of London EA communities, spaces and programmes; the best place to start locally
+  - 🟢 [**London EA Events**](https://luma.com/calendar/cal-afqqBGvsVut8g8a) — EA UK's calendar of EA and EA-adjacent events across London
+  - 🟢 [**London Effective Giving**](https://londoneffectivegiving.com/) — Socials, talks and coworking for people interested in effective giving
+  - 🟡 [**Ambitious Impact**](https://www.charityentrepreneurship.com/) — Incubator for evidence-driven nonprofit founders (formerly Charity Entrepreneurship)
 - 🟢 [**Impact Connect**](https://impactconnect.compassio.co/) — Monthly 1-on-1 matching with other professionals working on meaningful challenges; online, supported by the World Economic Forum's Global Shapers Community
 
 
@@ -153,6 +156,7 @@ Resources focused on specific causes.
 - 🟡 [**DataKind UK**](https://datakind.org.uk/) — Volunteer data scientists working on projects for charities and social enterprises
 - 🟡 [**Tech for Good Live**](https://techforgood.live/) — Podcast, events and community about tech for good in the UK
 - 🟡 [**Charity Digital**](https://www.charitydigital.org.uk/) — Resources, news and events on technology for charities
+- 🟡 [**TechSoup Connect**](https://events.techsoup.org/techsoup-connect-england-chapter/) — Volunteer-run tech for good meetups for nonprofits; the London chapter was formerly NetSquared London
 
 ### Accessibility 🟡
 
@@ -194,7 +198,7 @@ Resources focused on specific causes.
 
 - 🟢 [Impact Hub](https://impacthub.net/) — Coworking space in Euston with various programs for social enterprises
 - The Conduit
-- Impact First
+- 🟢 [Impact First](https://www.impactfirst.org.uk/) — Shared workspace and events for people working on high-impact, EA-aligned projects
 - Venture Cafe
 
 Public
@@ -207,6 +211,9 @@ Public
 - 🟡 [**UnLtd**](https://www.unltd.org.uk/) — Support and funding for social entrepreneurs across the UK
 - 🟡 [**Social Enterprise UK**](https://www.socialenterprise.org.uk/) — National body for social enterprises, with guides and events
 - 🟡 [**Carbon13**](https://carbonthirteen.com/) — Venture builder for climate startups, based in Cambridge
+- 🟡 [**Tech4Good South West**](https://tech4goodsouthwest.org/) — Community bringing together tech and social impact organisations across Bristol, Bath and the South West
+- 🟡 [**Tech for Good North East**](https://www.techforgoodne.org/) — Network for digital inclusion, adoption and innovation for social impact in the North East (formerly Social Tech North East)
+- 🟡 [**Tech for Good Scotland**](https://thirdsectorlab.co.uk/techforgood/) — Regular free events in Glasgow on responsible AI, civic tech and cross-sector collaboration, run by Third Sector Lab
 - 🟡 [**Wellbeing Research Centre**](https://wellbeing.hmc.ox.ac.uk/) — Oxford research centre on wellbeing science, behind the World Happiness Report
 
 ### Global & Online

@@ -115,6 +115,11 @@ main :focus-visible {
   outline-color: var(--yellow);
 }
 
+/* Keep a phrase on one line, e.g. "non-profits" (no break after the hyphen). */
+.nowrap {
+  white-space: nowrap;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

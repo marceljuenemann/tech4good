@@ -22,16 +22,31 @@ import { links, url } from '../config';
           aria-hidden={i === 0 ? undefined : 'true'}
           data-slide
         >
-          <Picture
-            src={photo.src}
-            alt={photo.alt}
-            formats={['avif', 'webp']}
-            widths={[640, 960, 1280, 1600, 2048].filter((w) => w <= photo.src.width)}
-            sizes="(max-width: 760px) 100vw, 62vw"
-            loading={i === 0 ? 'eager' : 'lazy'}
-            fetchpriority={i === 0 ? 'high' : undefined}
-            style={photo.position ? `object-position: ${photo.position}` : undefined}
-          />
+          {i === 0 ? (
+            <Picture
+              src={photo.src}
+              alt={photo.alt}
+              formats={['avif', 'webp']}
+              widths={[640, 960, 1280, 1600, 2048].filter((w) => w <= photo.src.width)}
+              sizes="(max-width: 760px) 100vw, 62vw"
+              loading="eager"
+              fetchpriority="high"
+              style={photo.position ? `object-position: ${photo.position}` : undefined}
+            />
+          ) : (
+            // Later photos sit in a <template> so they don't download with the page;
+            // the script adds each one shortly before it's shown.
+            <template data-deferred>
+              <Picture
+                src={photo.src}
+                alt={photo.alt}
+                formats={['avif', 'webp']}
+                widths={[640, 960, 1280, 1600, 2048].filter((w) => w <= photo.src.width)}
+                sizes="(max-width: 760px) 100vw, 62vw"
+                style={photo.position ? `object-position: ${photo.position}` : undefined}
+              />
+            </template>
+          )}
         </div>
       ))
     }
@@ -55,25 +70,6 @@ import { links, url } from '../config';
               </button>
             ))}
           </div>
-          <button type="button" class="round" aria-label="Pause slideshow" data-pause>
-            <svg class="icon-pause" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <rect x="6" y="5" width="4" height="14" rx="1" />
-              <rect x="14" y="5" width="4" height="14" rx="1" />
-            </svg>
-            <svg class="icon-play" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" />
-            </svg>
-          </button>
-          <button type="button" class="round" aria-label="Previous photo" data-prev>
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 6l-6 6 6 6" />
-            </svg>
-          </button>
-          <button type="button" class="round" aria-label="Next photo" data-next>
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 6l6 6-6 6" />
-            </svg>
-          </button>
         </div>
       )
     }
@@ -81,11 +77,11 @@ import { links, url } from '../config';
 
   <div class="container inner">
     <div class="copy">
-      <Logo size={132} class="hero-logo" eager />
-      <h1>Tech for Good Community <span class="accent">London</span></h1>
+      <Logo size={188} class="hero-logo" eager />
+      <h1 data-header-reveal>Tech for Good Community <span class="accent">London</span></h1>
       <p class="intro">
-        Monthly meetups for engineers, founders, charity teams, funders and the curious — swapping
-        ideas, finding collaborators and building things that matter.
+        Monthly meetups for developers, entrepreneurs, <span class="nowrap">non-profits</span>, funders and anyone interested
+        in building things that matter.
       </p>
       <div class="ctas">
         <a href={links.luma} class="btn btn-yellow btn-lg">See upcoming events</a>
@@ -101,17 +97,25 @@ import { links, url } from '../config';
 
   if (root && slides.length > 1) {
     const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
-    const pauseBtn = root.querySelector<HTMLButtonElement>('[data-pause]')!;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // No auto-advance for people who asked for reduced motion.
+    const autoplay = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     let index = 0;
     let timer: number | undefined;
-    // Paused by the user (button) vs. temporarily (hover/focus).
-    let userPaused = reduceMotion.matches;
+    // Paused while the pointer or keyboard focus is on the photos.
     let hoverPaused = false;
+
+    // Insert a deferred photo into the page (starts its download).
+    const load = (i: number) => {
+      const slide = slides[(i + slides.length) % slides.length];
+      const template = slide.querySelector<HTMLTemplateElement>('template[data-deferred]');
+      if (template) slide.replaceChildren(template.content.cloneNode(true));
+    };
 
     const show = (i: number) => {
       index = (i + slides.length) % slides.length;
+      load(index);
+      load(index + 1); // get the next one ready before it's needed
       slides.forEach((slide, n) => {
         const active = n === index;
         slide.classList.toggle('is-active', active);
@@ -128,13 +132,8 @@ import { links, url } from '../config';
 
     const start = () => {
       stop();
-      if (userPaused || hoverPaused) return;
+      if (!autoplay || hoverPaused) return;
       timer = window.setInterval(() => show(index + 1), 5000);
-    };
-
-    const renderPause = () => {
-      pauseBtn.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
-      pauseBtn.classList.toggle('is-paused', userPaused);
     };
 
     dots.forEach((dot) =>
@@ -143,20 +142,6 @@ import { links, url } from '../config';
         start();
       }),
     );
-    root.querySelector('[data-prev]')!.addEventListener('click', () => {
-      show(index - 1);
-      start();
-    });
-    root.querySelector('[data-next]')!.addEventListener('click', () => {
-      show(index + 1);
-      start();
-    });
-    pauseBtn.addEventListener('click', () => {
-      userPaused = !userPaused;
-      renderPause();
-      start();
-    });
-
     const pauseTemporarily = (paused: boolean) => {
       hoverPaused = paused;
       start();
@@ -169,7 +154,10 @@ import { links, url } from '../config';
     });
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
 
-    renderPause();
+    // Fetch the second photo once the page itself has finished loading.
+    if (document.readyState === 'complete') load(1);
+    else window.addEventListener('load', () => load(1), { once: true });
+
     start();
   }
 </script>
@@ -275,40 +263,14 @@ import { links, url } from '../config';
     background: var(--yellow);
   }
 
-  .round {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-pill);
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
-    background: rgba(16, 32, 74, 0.55);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  .round:hover {
-    background: rgba(16, 32, 74, 0.8);
-  }
-
-  .icon-play,
-  .is-paused .icon-pause {
-    display: none;
-  }
-
-  .is-paused .icon-play {
-    display: block;
-  }
-
   /* ---------- Copy ---------- */
   .inner {
     position: relative;
     min-height: 520px;
-    padding-top: 32px;
+    padding-top: 48px; /* the header is hidden at the top of the homepage */
     padding-bottom: 160px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     pointer-events: none;
   }
 
@@ -322,10 +284,11 @@ import { links, url } from '../config';
   }
 
   .copy :global(.hero-logo) {
-    width: 132px;
-    height: 132px;
-    border-radius: 26px;
+    width: 188px;
+    height: 188px;
+    border-radius: 36px;
     position: relative;
+    margin-left: -12px; /* the artwork has padding; align the drawing with the heading */
   }
 
   h1 {
@@ -372,6 +335,12 @@ import { links, url } from '../config';
       max-width: 480px;
     }
 
+    .copy :global(.hero-logo) {
+      width: 156px;
+      height: 156px;
+      border-radius: 30px;
+    }
+
     h1 {
       font-size: 54px;
     }
@@ -382,16 +351,18 @@ import { links, url } from '../config';
     .photos {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 340px;
     }
 
     .fade-left {
       display: none;
     }
 
+    /* Top-right, out of the way of the big logo at the bottom of the photo. */
     .controls {
-      bottom: 20px;
-      right: 16px;
+      top: 12px;
+      bottom: auto;
+      right: 12px;
     }
 
     .inner {
@@ -401,11 +372,13 @@ import { links, url } from '../config';
     }
 
     .copy :global(.hero-logo) {
-      width: 72px;
-      height: 72px;
-      border-radius: 16px;
-      margin-top: -52px;
+      width: 136px;
+      height: 136px;
+      border-radius: 28px;
+      margin-top: -92px;
+      margin-left: 0;
       box-shadow: 0 0 0 4px var(--navy);
+      mix-blend-mode: normal; /* it overlaps the photo here, so keep the solid tile */
     }
 
     h1 {

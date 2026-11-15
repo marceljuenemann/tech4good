@@ -6,7 +6,7 @@ export type NavKey = 'help' | 'resources' | 'about' | 'community' | null;
 
 interface Props {
   current?: NavKey;
-  /** Homepage only: hide the brand at the top and shrink the header on scroll. */
+  /** Homepage only: hide the header until the hero headline is scrolled past. */
   shrink?: boolean;
 }
 
@@ -24,7 +24,7 @@ const nav: { key: NavKey; label: string; href: string }[] = [
   <div class="container inner">
     <a href={url('/')} class="brand" aria-label={`${site.name} — home`}>
       <Logo size={56} class="brand-logo" eager />
-      <span class="brand-name" aria-hidden="true">{site.shortName}</span>
+      <span class="brand-name" aria-hidden="true">{site.shortName} <span class="brand-city">London</span></span>
     </a>
 
     <button
@@ -34,12 +34,13 @@ const nav: { key: NavKey; label: string; href: string }[] = [
       aria-controls="site-nav"
       data-menu-toggle
     >
-      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-        <path class="bar bar-top" d="M4 7h16"></path>
-        <path class="bar bar-mid" d="M4 12h16"></path>
-        <path class="bar bar-bot" d="M4 17h16"></path>
+      <svg class="icon-open" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
       </svg>
-      <span>Menu</span>
+      <svg class="icon-close" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+      <span class="menu-label">Menu</span>
     </button>
 
     <nav id="site-nav" aria-label="Main" class="nav">
@@ -69,17 +70,26 @@ const nav: { key: NavKey; label: string; href: string }[] = [
   const header = document.querySelector<HTMLElement>('[data-header]');
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
 
+  const setOpen = (open: boolean) => {
+    if (!header || !toggle) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    header.classList.toggle('menu-open', open);
+  };
+
   if (header?.classList.contains('site-header--shrink')) {
-    const update = () => header.classList.toggle('is-scrolled', window.scrollY > 140);
+    // Homepage: the header stays hidden until the hero headline is scrolled past.
+    const marker = document.querySelector<HTMLElement>('[data-header-reveal]');
+    const update = () => {
+      const revealed = marker ? marker.getBoundingClientRect().bottom < 0 : window.scrollY > 140;
+      if (!revealed && header.classList.contains('is-revealed')) setOpen(false);
+      header.classList.toggle('is-revealed', revealed);
+    };
     window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
     update();
   }
 
   if (header && toggle) {
-    const setOpen = (open: boolean) => {
-      toggle.setAttribute('aria-expanded', String(open));
-      header.classList.toggle('menu-open', open);
-    };
     toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
     header.querySelectorAll('.nav a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
     document.addEventListener('keydown', (e) => {
@@ -130,6 +140,12 @@ const nav: { key: NavKey; label: string; href: string }[] = [
     font-weight: 700;
     font-size: 22px;
     color: var(--yellow);
+    white-space: nowrap;
+  }
+
+  .brand-city {
+    color: var(--white);
+    margin-left: 0.2em;
   }
 
   .nav {
@@ -171,22 +187,26 @@ const nav: { key: NavKey; label: string; href: string }[] = [
     display: none;
   }
 
-  /* Homepage: hide the brand at the top (the hero has the big logo). JS-only so it never disappears for good. */
+  /* Homepage: the header floats over the page and slides in (compact, with a shadow)
+     only after the hero headline has scrolled away. JS-only, so without scripts it's
+     a normal header. */
   :global(.js) .site-header--shrink {
-    border-bottom-color: var(--navy);
-  }
-
-  :global(.js) .site-header--shrink:not(.is-scrolled) .brand {
-    opacity: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
     visibility: hidden;
-    transform: translateY(6px);
-  }
-
-  .site-header--shrink.is-scrolled {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, visibility 0s linear 0.3s;
   }
 
-  .site-header--shrink.is-scrolled .inner {
+  :global(.js) .site-header--shrink.is-revealed {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.3s, visibility 0s;
+  }
+
+  :global(.js) .site-header--shrink .inner {
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -225,21 +245,13 @@ const nav: { key: NavKey; label: string; href: string }[] = [
       cursor: pointer;
     }
 
-    .bar {
-      transition: transform 0.2s, opacity 0.2s;
-      transform-origin: center;
+    .icon-close,
+    .menu-open .icon-open {
+      display: none;
     }
 
-    .menu-open .bar-top {
-      transform: translateY(5px) rotate(45deg);
-    }
-
-    .menu-open .bar-mid {
-      opacity: 0;
-    }
-
-    .menu-open .bar-bot {
-      transform: translateY(-5px) rotate(-45deg);
+    .menu-open .icon-close {
+      display: block;
     }
 
     :global(.js) .nav {
@@ -280,11 +292,62 @@ const nav: { key: NavKey; label: string; href: string }[] = [
     }
   }
 
+  /* Narrow phones: keep brand and menu button on one line. */
+  @media (max-width: 440px) {
+    .inner {
+      column-gap: 12px;
+    }
+
+    .brand {
+      gap: 10px;
+    }
+
+    .brand :global(.brand-logo) {
+      width: 40px;
+      height: 40px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+    }
+
+    :global(.js) .menu-toggle {
+      width: 44px;
+      padding: 0;
+      justify-content: center;
+    }
+
+    @media (max-width: 359px) {
+      .brand :global(.brand-logo) {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+      }
+
+      .brand-name {
+        font-size: 16px;
+      }
+    }
+
+    .menu-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    :global(.js) .site-header--shrink,
+    :global(.js) .site-header--shrink.is-revealed {
+      transition: none;
+    }
+
     .site-header,
     .inner,
-    .brand,
-    .bar {
+    .brand {
       transition: none;
     }
   }

@@ -1,0 +1,469 @@
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource/quicksand/latin-700.css';
+
+/* ---------- Tokens ---------- */
+:root {
+  --navy: #10204a;
+  --navy-border: #24366a;
+  --yellow: #f5c542;
+  --ink: #0e1a38;
+  --muted: #4a5573;
+  --body-soft: #33405f;
+  --link: #23408e;
+  --on-navy-muted: #d5dbea;
+  --surface: #f4f6fb;
+  --surface-strong: #e7ebf4;
+  --line: #dce1ec;
+  --input-border: #8c96af;
+  --soft-yellow: #fff8e1;
+  --soft-yellow-border: #f0d98a;
+  --verified-bg: #e3f1e7;
+  --verified-text: #1d5b33;
+  --white: #ffffff;
+
+  --font-heading: 'Quicksand', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-card: 20px;
+  --radius-card-sm: 16px;
+  --radius-panel: 24px;
+  --radius-input: 12px;
+  --radius-pill: 999px;
+
+  --max-width: 1200px;
+  --gutter: 32px;
+  --shadow-card: 0 12px 32px rgba(16, 32, 74, 0.12);
+  --shadow-form: 0 12px 32px rgba(16, 32, 74, 0.1);
+
+  --header-height: 92px;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--white);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--navy);
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* On light backgrounds, a yellow outline is too faint. */
+.on-light :focus-visible,
+main :focus-visible {
+  outline-color: var(--link);
+}
+
+.on-navy :focus-visible {
+  outline-color: var(--yellow);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+.band {
+  background: var(--surface);
+}
+
+.on-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* ---------- Type helpers ---------- */
+.eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--link);
+}
+
+.on-navy .eyebrow {
+  color: var(--yellow);
+}
+
+.h2 {
+  font-size: 44px;
+  line-height: 1.1;
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.more-link {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+@media (max-width: 760px) {
+  .h2 {
+    font-size: 34px;
+  }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-lg {
+  padding: 16px 28px;
+  font-size: 17px;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #1b2f66;
+  color: var(--white);
+}
+
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+.btn-yellow:hover {
+  background: #ffd45e;
+  color: var(--navy);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--on-navy-muted);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.badge-verified {
+  background: var(--verified-bg);
+  color: var(--verified-text);
+}
+
+.badge-yellow {
+  background: var(--yellow);
+  color: var(--navy);
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+/* ---------- Forms ---------- */
+.form-card {
+  background: var(--white);
+  border: 1.5px solid var(--navy);
+  border-radius: var(--radius-panel);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: var(--shadow-form);
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .form-card {
+    padding: 24px 20px;
+  }
+}
+
+.form-card h2 {
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.form-card .intro {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.form-card .note {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field .optional {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 14px;
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--radius-input);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--white);
+}
+
+textarea.input {
+  resize: vertical;
+}
+
+select.input {
+  appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2310204A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.input:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 1px;
+  border-color: var(--navy);
+}
+
+fieldset.choices {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+fieldset.choices legend {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.chip-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--radius-pill);
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.chip-option:has(input:checked) {
+  border-color: var(--navy);
+  background: var(--surface);
+}
+
+.chip-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--navy);
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.consent input {
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  flex: none;
+  accent-color: var(--navy);
+}
+
+/* Spam trap: hidden from people, visible to naive bots. */
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Two-column help layout ---------- */
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.split > .main {
+  flex: 1 1 560px;
+  min-width: 0;
+}
+
+.split > .side {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .split {
+    gap: 40px;
+  }
+}

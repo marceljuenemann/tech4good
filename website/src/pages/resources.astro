@@ -1,0 +1,469 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormShell from '../components/FormShell.astro';
+import { resourceSections } from '../data/resources';
+import { links } from '../config';
+
+const uniqueCount = new Set(resourceSections.flatMap((s) => s.groups.flatMap((g) => g.items.map((i) => i.name))))
+  .size;
+
+const searchText = (...parts: (string | undefined)[]) => parts.filter(Boolean).join(' ').toLowerCase();
+---
+
+<BaseLayout
+  title="Resources"
+  current="resources"
+  description="A community-maintained directory of London tech-for-good communities, causes, job boards, funders and spaces."
+>
+  <section class="intro band">
+    <div class="container intro-inner">
+      <div class="title-row">
+        <div class="title-copy">
+          <h1>Tech for Good in London</h1>
+          <p class="lead">
+            A community-maintained directory of communities, causes, job boards, funders and spaces. Spotted
+            something missing or out of date?
+          </p>
+        </div>
+        <a href="#propose" class="btn btn-primary">Propose an edit</a>
+      </div>
+
+      <div class="filters" data-filters>
+        <div class="search-row">
+          <label for="res-search" class="visually-hidden">Search resources</label>
+          <input
+            id="res-search"
+            type="search"
+            class="search"
+            placeholder="Search by name, cause or keyword"
+            autocomplete="off"
+            data-search
+          />
+          <span class="count" aria-live="polite" data-count>{uniqueCount} resources</span>
+        </div>
+        <div role="group" aria-label="Filter by category" class="chips">
+          <button type="button" class="chip" aria-pressed="true" data-chip="all">All</button>
+          {
+            resourceSections.map((s) => (
+              <button type="button" class="chip" aria-pressed="false" data-chip={s.id}>
+                {s.title}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <p class="legend">
+        <span class="badge badge-verified">Checked by us</span>
+        We know these first- or second-hand. Others were added through research and may be out of date.
+      </p>
+    </div>
+  </section>
+
+  <section class="directory">
+    <div class="container sections">
+      <div class="empty" hidden data-empty>
+        Nothing matches that search. <a href="#propose">Suggest a resource</a> we should add.
+      </div>
+
+      {
+        resourceSections.map((section) => (
+          <section class="res-section" data-section={section.id} aria-labelledby={`sec-${section.id}`}>
+            <h2 id={`sec-${section.id}`}>{section.title}</h2>
+            {section.groups.map((group) => (
+              <div class="res-group" data-group>
+                {group.title && <h3>{group.title}</h3>}
+                <ul class="grid">
+                  {group.items.map((item) => (
+                    <li
+                      class="res-card"
+                      data-item
+                      data-name={item.name}
+                      data-search={searchText(item.name, item.description, group.title, section.title)}
+                    >
+                      {item.url ? <a href={item.url}>{item.name}</a> : <span class="name">{item.name}</span>}
+                      <span class="desc">{item.description}</span>
+                      {item.verified && <span class="badge badge-verified">Checked by us</span>}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="propose" class="propose band">
+    <div class="container split">
+      <div class="main propose-copy">
+        <h2>Propose an edit</h2>
+        <p class="lead">Know a resource we’ve missed, or one that’s closed or moved? Tell us and we’ll update the list.</p>
+        <p class="muted">
+          Comfortable with GitHub? You can also <a href={links.resourcesSource}>open a pull request</a>.
+        </p>
+      </div>
+
+      <FormShell name="resources" label="Propose an edit to the directory" class="side propose-form">
+        <fieldset class="choices">
+          <legend>I’d like to…</legend>
+          <div class="chip-options">
+            <label class="chip-option"><input type="radio" name="kind" value="add" checked />Add a resource</label>
+            <label class="chip-option"><input type="radio" name="kind" value="update" />Update one</label>
+            <label class="chip-option"><input type="radio" name="kind" value="remove" />Remove one</label>
+          </div>
+        </fieldset>
+        <div class="field-grid">
+          <label class="field">Resource name<input class="input" type="text" name="resource" required /></label>
+          <label class="field">Website<input class="input" type="url" name="url" placeholder="https://" /></label>
+        </div>
+        <label class="field">
+          Category
+          <select class="input" name="category">
+            {resourceSections.map((s) => <option>{s.title}</option>)}
+            <option>Not sure</option>
+          </select>
+        </label>
+        <label class="field">
+          What should we know?
+          <textarea class="input" name="message" rows="4"></textarea>
+        </label>
+        <label class="field">
+          <span>Your email <span class="optional">(optional, if you’d like a reply)</span></span>
+          <input class="input" type="email" name="email" autocomplete="email" />
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg submit">Send suggestion</button>
+      </FormShell>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const search = document.querySelector<HTMLInputElement>('[data-search]')!;
+  const count = document.querySelector<HTMLElement>('[data-count]')!;
+  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-chip]'));
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-section]'));
+
+  const params = new URLSearchParams(window.location.search);
+  let category = params.get('category') ?? 'all';
+  if (!chips.some((c) => c.dataset.chip === category)) category = 'all';
+  search.value = params.get('q') ?? '';
+
+  const apply = () => {
+    const q = search.value.trim().toLowerCase();
+    const visibleNames = new Set<string>();
+
+    sections.forEach((section) => {
+      const inCategory = category === 'all' || section.dataset.section === category;
+      let sectionVisible = false;
+      section.querySelectorAll<HTMLElement>('[data-group]').forEach((group) => {
+        let groupVisible = false;
+        group.querySelectorAll<HTMLElement>('[data-item]').forEach((item) => {
+          const match = inCategory && (!q || item.dataset.search!.includes(q));
+          item.hidden = !match;
+          if (match) {
+            groupVisible = true;
+            visibleNames.add(item.dataset.name!);
+          }
+        });
+        group.hidden = !groupVisible;
+        sectionVisible ||= groupVisible;
+      });
+      section.hidden = !sectionVisible;
+    });
+
+    chips.forEach((chip) => chip.setAttribute('aria-pressed', String(chip.dataset.chip === category)));
+    const n = visibleNames.size;
+    count.textContent = `${n} ${n === 1 ? 'resource' : 'resources'}`;
+    empty.hidden = n > 0;
+
+    // Keep the URL shareable without adding history entries.
+    const next = new URLSearchParams();
+    if (category !== 'all') next.set('category', category);
+    if (q) next.set('q', search.value.trim());
+    const qs = next.toString();
+    history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`);
+  };
+
+  search.addEventListener('input', apply);
+  chips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      category = chip.dataset.chip!;
+      apply();
+    }),
+  );
+  apply();
+</script>
+
+<style>
+  .intro {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .intro-inner {
+    padding-top: 48px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .title-copy {
+    flex: 1 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  h1 {
+    font-size: 52px;
+    line-height: 1.08;
+  }
+
+  .title-copy .lead {
+    font-size: 20px;
+    max-width: 720px;
+  }
+
+  .filters {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  :global(.js) .filters {
+    display: flex;
+  }
+
+  .search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .search {
+    flex: 1 1 360px;
+    min-width: 0;
+    min-height: 52px;
+    padding: 14px 18px;
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--radius-pill);
+    font: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--white);
+  }
+
+  .search:focus-visible {
+    outline: 3px solid var(--link);
+    outline-offset: 1px;
+  }
+
+  .count {
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    min-height: 44px;
+    border: 1.5px solid var(--input-border);
+    background: var(--white);
+    color: var(--ink);
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .chip:hover {
+    border-color: var(--navy);
+  }
+
+  .chip[aria-pressed='true'] {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .legend {
+    font-size: 14px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Directory ---------- */
+  .directory {
+    padding: 48px 0 80px;
+  }
+
+  .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .empty {
+    padding: 48px;
+    text-align: center;
+    border: 1.5px dashed var(--input-border);
+    border-radius: var(--radius-card);
+    font-size: 17px;
+    color: var(--muted);
+  }
+
+  .res-section {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    scroll-margin-top: 90px;
+  }
+
+  .res-section h2 {
+    font-size: 34px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .res-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .res-group h3 {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--link);
+  }
+
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: 14px;
+  }
+
+  .res-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card-sm);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--white);
+  }
+
+  .res-card a,
+  .res-card .name {
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .res-card .badge {
+    margin-top: 4px;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  /* ---------- Propose ---------- */
+  .propose {
+    padding: 80px 0;
+    scroll-margin-top: 70px;
+  }
+
+  .propose-copy {
+    flex-basis: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .propose-copy h2 {
+    font-size: 38px;
+    line-height: 1.12;
+  }
+
+  .propose-copy .lead {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .propose-copy .muted {
+    line-height: 1.6;
+  }
+
+  .propose-copy a {
+    font-weight: 600;
+  }
+
+  .propose :global(.propose-form) {
+    flex-basis: 560px;
+    box-shadow: none;
+  }
+
+  .submit {
+    align-self: flex-start;
+  }
+
+  @media (max-width: 760px) {
+    h1 {
+      font-size: 38px;
+    }
+
+    .title-copy .lead {
+      font-size: 18px;
+    }
+
+    .res-section h2 {
+      font-size: 28px;
+    }
+
+    .propose {
+      padding: 56px 0;
+    }
+
+    .propose-copy h2 {
+      font-size: 32px;
+    }
+
+    .empty {
+      padding: 32px 20px;
+    }
+  }
+</style>

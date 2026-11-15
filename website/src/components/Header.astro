@@ -1,0 +1,291 @@
+---
+import Logo from './Logo.astro';
+import { links, site, url } from '../config';
+
+export type NavKey = 'help' | 'resources' | 'about' | 'community' | null;
+
+interface Props {
+  current?: NavKey;
+  /** Homepage only: hide the brand at the top and shrink the header on scroll. */
+  shrink?: boolean;
+}
+
+const { current = null, shrink = false } = Astro.props;
+
+const nav: { key: NavKey; label: string; href: string }[] = [
+  { key: null, label: 'Events', href: links.luma },
+  { key: 'help', label: 'How we help', href: url('/#help') },
+  { key: 'resources', label: 'Resources', href: url('/resources/') },
+  { key: 'about', label: 'About', href: url('/about/') },
+];
+---
+
+<header class:list={['site-header on-navy', { 'site-header--shrink': shrink }]} data-header>
+  <div class="container inner">
+    <a href={url('/')} class="brand" aria-label={`${site.name} — home`}>
+      <Logo size={56} class="brand-logo" eager />
+      <span class="brand-name" aria-hidden="true">{site.shortName}</span>
+    </a>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-menu-toggle
+    >
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path class="bar bar-top" d="M4 7h16"></path>
+        <path class="bar bar-mid" d="M4 12h16"></path>
+        <path class="bar bar-bot" d="M4 17h16"></path>
+      </svg>
+      <span>Menu</span>
+    </button>
+
+    <nav id="site-nav" aria-label="Main" class="nav">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="nav-link"
+            aria-current={item.key && item.key === current ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={url('/community/')}
+        class="btn btn-yellow nav-cta"
+        aria-current={current === 'community' ? 'page' : undefined}
+      >
+        Join the community
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+
+  if (header?.classList.contains('site-header--shrink')) {
+    const update = () => header.classList.toggle('is-scrolled', window.scrollY > 140);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  if (header && toggle) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      header.classList.toggle('menu-open', open);
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    header.querySelectorAll('.nav a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && header.classList.contains('menu-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--navy-border);
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 32px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    transition: padding 0.3s;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--white);
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  }
+
+  .brand :global(.brand-logo) {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  .brand-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--yellow);
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 28px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .nav-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--white);
+    border-bottom-color: var(--on-navy-muted);
+  }
+
+  .nav-link[aria-current='page'] {
+    border-bottom-color: var(--yellow);
+  }
+
+  .nav-cta {
+    padding: 11px 20px;
+    font-size: 15px;
+    min-height: 44px;
+  }
+
+  .nav-cta[aria-current='page'] {
+    box-shadow: 0 0 0 2px var(--navy), 0 0 0 4px var(--yellow);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Homepage: hide the brand at the top (the hero has the big logo). JS-only so it never disappears for good. */
+  :global(.js) .site-header--shrink {
+    border-bottom-color: var(--navy);
+  }
+
+  :global(.js) .site-header--shrink:not(.is-scrolled) .brand {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+  }
+
+  .site-header--shrink.is-scrolled {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .site-header--shrink.is-scrolled .inner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* ---------- Mobile menu ---------- */
+  @media (max-width: 900px) {
+    .inner {
+      flex-wrap: wrap;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .brand :global(.brand-logo) {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+    }
+
+    .brand-name {
+      font-size: 20px;
+    }
+
+    :global(.js) .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1.5px solid var(--on-navy-muted);
+      border-radius: var(--radius-pill);
+      background: transparent;
+      color: var(--white);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .bar {
+      transition: transform 0.2s, opacity 0.2s;
+      transform-origin: center;
+    }
+
+    .menu-open .bar-top {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .menu-open .bar-mid {
+      opacity: 0;
+    }
+
+    .menu-open .bar-bot {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+
+    :global(.js) .nav {
+      display: none;
+    }
+
+    .nav {
+      flex-basis: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 8px 0 12px;
+      font-size: 17px;
+    }
+
+    .menu-open .nav {
+      display: flex;
+    }
+
+    .nav-link {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .nav-link:hover,
+    .nav-link[aria-current='page'] {
+      border-bottom-color: var(--navy-border);
+    }
+
+    .nav-link[aria-current='page'] {
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      margin-top: 16px;
+      align-self: flex-start;
+      font-size: 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .inner,
+    .brand,
+    .bar {
+      transition: none;
+    }
+  }
+</style>

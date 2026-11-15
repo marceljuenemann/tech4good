@@ -1,0 +1,65 @@
+---
+// A titled list of resources (name link + one-line description), used on the help pages.
+export interface LinkItem {
+  name: string;
+  url?: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  items: LinkItem[];
+  headingSize?: 'md' | 'sm';
+}
+
+const { title, items, headingSize = 'md' } = Astro.props;
+---
+
+<div class="link-list">
+  <h2 class:list={[headingSize]}>{title}</h2>
+  <ul>
+    {
+      items.map((item) => (
+        <li>
+          {item.url ? <a href={item.url}>{item.name}</a> : <span class="name">{item.name}</span>}
+          <p>{item.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  h2.sm {
+    font-size: 26px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  a,
+  .name {
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+</style>

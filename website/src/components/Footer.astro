@@ -1,0 +1,139 @@
+---
+import Logo from './Logo.astro';
+import { links, site, url } from '../config';
+
+const year = new Date().getFullYear();
+
+const columns = [
+  {
+    title: 'Get involved',
+    items: [
+      { label: 'Events on Luma', href: links.luma },
+      { label: 'Join the WhatsApp group', href: url('/community/') },
+      { label: 'Follow us on LinkedIn', href: links.linkedIn },
+      { label: 'Contact us', href: url('/contact/') },
+    ],
+  },
+  {
+    title: 'Explore',
+    items: [
+      { label: 'How we help', href: url('/#help') },
+      { label: 'Resources', href: url('/resources/') },
+      { label: 'About us', href: url('/about/') },
+    ],
+  },
+  {
+    title: 'Support',
+    items: [
+      { label: 'Open Collective', href: links.openCollective },
+      { label: 'Contribute on GitHub', href: links.github },
+      { label: 'Code of conduct', href: links.codeOfConduct },
+      { label: 'Privacy policy', href: links.privacy },
+    ],
+  },
+];
+---
+
+<footer class="site-footer on-navy">
+  <div class="container top">
+    <div class="about">
+      <Logo size={64} class="footer-logo" />
+      <p>{site.description}</p>
+    </div>
+    {
+      columns.map((col) => (
+        <nav aria-label={col.title} class="col">
+          <h2 class="col-title">{col.title}</h2>
+          <ul>
+            {col.items.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))
+    }
+  </div>
+  <div class="container bottom">
+    <p>© {year} {site.name} · {site.contactEmail}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    color: var(--on-navy-muted);
+  }
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    padding-top: 56px;
+    padding-bottom: 32px;
+  }
+
+  .about {
+    flex: 1 1 280px;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .about :global(.footer-logo) {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+  }
+
+  .col-title {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 4px;
+  }
+
+  .col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+  }
+
+  .col a {
+    display: inline-block;
+    padding: 6px 0;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .col a:hover {
+    color: var(--white);
+    text-decoration: underline;
+  }
+
+  .bottom {
+    padding-top: 20px;
+    padding-bottom: 32px;
+    border-top: 1px solid var(--navy-border);
+    font-size: 14px;
+  }
+
+  @media (max-width: 760px) {
+    .top {
+      gap: 32px 48px;
+      justify-content: flex-start;
+    }
+
+    .about {
+      flex-basis: 100%;
+    }
+  }
+</style>

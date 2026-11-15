@@ -1,0 +1,87 @@
+---
+import { url } from '../config';
+
+interface Props {
+  title: string;
+  /** Breadcrumb label after "How can we help?". Omit for no breadcrumb. */
+  crumb?: string;
+}
+
+const { title, crumb } = Astro.props;
+---
+
+<section class="page-intro band">
+  <div class="container inner">
+    {
+      crumb && (
+        <nav aria-label="Breadcrumb" class="crumbs">
+          <ol>
+            <li>
+              <a href={url('/#help')}>How can we help?</a>
+            </li>
+            <li aria-current="page">{crumb}</li>
+          </ol>
+        </nav>
+      )
+    }
+    <h1>{title}</h1>
+    <div class="lead-wrap"><slot /></div>
+  </div>
+</section>
+
+<style>
+  .page-intro {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .inner {
+    padding-top: 48px;
+    padding-bottom: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .crumbs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 6px;
+  }
+
+  h1 {
+    font-size: 52px;
+    line-height: 1.08;
+  }
+
+  .lead-wrap {
+    max-width: 760px;
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  @media (max-width: 760px) {
+    .inner {
+      padding-top: 36px;
+      padding-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 38px;
+    }
+
+    .lead-wrap {
+      font-size: 18px;
+    }
+  }
+</style>

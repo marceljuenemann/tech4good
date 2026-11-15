@@ -1,0 +1,152 @@
+---
+import { links, nextMeetup } from '../config';
+
+const tz = 'Europe/London';
+const event = nextMeetup;
+const fmt = (opts: Intl.DateTimeFormatOptions) =>
+  event ? new Intl.DateTimeFormat('en-GB', { timeZone: tz, ...opts }).format(event.start) : '';
+
+const month = fmt({ month: 'short' });
+const day = fmt({ day: 'numeric' });
+const weekday = fmt({ weekday: 'long' });
+const time = fmt({ hour: 'numeric', minute: '2-digit', hour12: true }).replace(' ', '').toLowerCase();
+const isoDate = event?.start.toISOString();
+---
+
+<section aria-label="Next meetup" class="next-meetup container">
+  <div class="card">
+    <div class="info">
+      {
+        event ? (
+          <time class="date" datetime={isoDate}>
+            <span class="month">{month}</span>
+            <span class="day">{day}</span>
+          </time>
+        ) : (
+          <span class="date" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <path d="M3 10h18M8 3v4M16 3v4" />
+            </svg>
+          </span>
+        )
+      }
+      <div class="text">
+        <span class="label">Next meetup</span>
+        {
+          event ? (
+            <>
+              <span class="name">{event.name}</span>
+              <span class="meta">
+                {weekday} · {time} · {event.venue}, London
+              </span>
+            </>
+          ) : (
+            <>
+              <span class="name">New dates coming soon</span>
+              <span class="meta">We meet every month. Follow us on Luma to hear first.</span>
+            </>
+          )
+        }
+      </div>
+    </div>
+    <a href={event?.url ?? links.luma} class="btn btn-primary">
+      {event ? 'Register on Luma' : 'See events on Luma'}
+    </a>
+  </div>
+</section>
+
+<style>
+  .next-meetup {
+    position: relative;
+    margin-top: -56px;
+  }
+
+  .card {
+    max-width: 1136px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 28px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+  }
+
+  .date {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    background: var(--yellow);
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .month {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .day {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .name {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .meta {
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 760px) {
+    .card {
+      padding: 22px 20px;
+    }
+
+    .info {
+      align-items: flex-start;
+    }
+
+    .card .btn {
+      width: 100%;
+    }
+  }
+</style>

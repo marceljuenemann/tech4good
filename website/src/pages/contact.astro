@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormShell from '../components/FormShell.astro';
+import { url } from '../config';
+---
+
+<BaseLayout title="Get in touch" current="help">
+  <section class="contact band">
+    <div class="container split">
+      <div class="main copy">
+        <nav aria-label="Breadcrumb" class="crumbs">
+          <ol>
+            <li><a href={url('/#help')}>How can we help?</a></li>
+            <li aria-current="page">Get in touch</li>
+          </ol>
+        </nav>
+        <h1>Tell us what you’re looking for</h1>
+        <p class="lead">
+          Not sure where you fit? Want to offer your time as a mentor, coach, builder or funder? Want to host
+          or sponsor a meetup? Drop us a line — we read everything.
+        </p>
+        <ul class="pointers">
+          <li>
+            <strong>Looking for help?</strong> Check the <a href={url('/#help')}>help paths</a> first — there
+            may be a faster route.
+          </li>
+          <li><strong>Offering help?</strong> Tell us your skills and how much time you have.</li>
+          <li><strong>Hosting a meetup?</strong> We’re always looking for venues across London.</li>
+        </ul>
+      </div>
+
+      <FormShell name="contact" label="Contact form" class="side">
+        <div class="field-grid">
+          <label class="field">Name<input class="input" type="text" name="name" autocomplete="name" required /></label>
+          <label class="field">Email<input class="input" type="email" name="email" autocomplete="email" required /></label>
+        </div>
+        <label class="field">
+          I’m getting in touch to…
+          <select class="input" name="reason">
+            <option>Ask for help with something else</option>
+            <option>Offer to help (mentor, coach, build, fund, intro)</option>
+            <option>Host or sponsor a meetup</option>
+            <option>Speak at a meetup</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="field">
+          Message
+          <textarea class="input" name="message" rows="7" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg submit">Send message</button>
+      </FormShell>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact {
+    padding: 64px 0 96px;
+  }
+
+  .copy {
+    flex-basis: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .crumbs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 6px;
+  }
+
+  h1 {
+    font-size: 52px;
+    line-height: 1.08;
+  }
+
+  .lead {
+    line-height: 1.6;
+  }
+
+  .pointers {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pointers li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .pointers li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--link);
+  }
+
+  .contact :global(.side) {
+    flex-basis: 520px;
+  }
+
+  .submit {
+    align-self: flex-start;
+  }
+
+  @media (max-width: 760px) {
+    .contact {
+      padding: 40px 0 64px;
+    }
+
+    h1 {
+      font-size: 38px;
+    }
+  }
+</style>

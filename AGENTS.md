@@ -11,7 +11,9 @@ A simple, fast, mostly static website for a volunteer-run London community. Its 
 3. Make our resource directory browsable.
 4. Grow the community (WhatsApp, newsletter, LinkedIn) and take donations (Open Collective).
 
-**Status:** planning. Nothing is built yet. The design is a first draft, and more changes are expected.
+**Status:** first front-end version built in `website/` (all eight pages, no backend yet). The design is a first draft, and more changes are expected.
+
+Commands (run in `website/`): `npm run dev` (local server), `npm run build` (output in `website/dist/`), `npm run check` (type check).
 
 ## Design references
 
@@ -37,21 +39,29 @@ A simple, fast, mostly static website for a volunteer-run London community. Its 
 | Analytics | None for now. If added, use something cookie-free (e.g. Plausible). |
 | Form handling | Marcel answers every form himself for now. Don't build routing, queues or a CRM; optimise only if volume grows. |
 
-## Planned layout
-
-Proposed structure, not yet created:
+## Layout
 
 ```
-src/
-  data/resources.yaml      # single source of truth for resources
-  components/              # Logo, Header, Footer, HelpCard, ResourceCard, FormCard, NextMeetup, Carousel…
-  layouts/                 # BaseLayout (head, header, footer), HelpPageLayout
-  pages/                   # index, careers, build, funding, community, contact, resources, about, thanks, privacy
-  styles/tokens.css        # colour, type and spacing tokens
-public/                    # optimised images, self-hosted fonts
-backend/forms.php          # deployed separately to the PHP host, not to GitHub Pages
-.github/workflows/         # build + deploy on push, daily scheduled rebuild
+website/                     # the Astro site
+  src/
+    config.ts                # links, placeholders (marked TODO), form/newsletter endpoints, sample next meetup, url() helper
+    assets/                  # logo, wordmark logo, carousel photos (optimised at build time)
+    components/              # Logo, Header, Footer, Hero (carousel), NextMeetup, PageIntro, LinkList, FormShell
+    layouts/BaseLayout.astro # <head>, skip link, header, footer
+    pages/                   # index, careers, build, funding, community, contact, resources, about
+    data/photos.ts           # carousel photos + alt text (any number)
+    data/resources.ts        # TEMPORARY copy of the mockup data; replace with resources.yaml
+    styles/global.css        # tokens (CSS custom properties), base styles, buttons, form styles
+backend/forms.php            # planned: deployed separately to the PHP host, not to GitHub Pages
+.github/workflows/           # planned: build + deploy on push, daily scheduled rebuild
 ```
+
+Conventions:
+
+- In-site links go through `url()` from `config.ts`, so the site still works if it's hosted under a sub-path.
+- Every form uses `FormShell`, which adds the endpoint, the hidden `form` name and the spam-trap field.
+- Help-page resource lists are hard-coded in each page for now (marked TODO); move them to the YAML.
+- Scripts are small `<script>` blocks in the component that needs them. `BaseLayout` adds a `js` class to `<html>`, so the CSS can hide JS-only controls (carousel buttons, resource filters, mobile menu) when scripts don't run.
 
 ## Resource data (`resources.yaml`)
 
@@ -109,6 +119,8 @@ These come from the design; details are in `DESIGN_BRIEF.md`.
 
 ## Still open
 
+- **Privacy policy page:** what each form collects (incl. phone numbers and LinkedIn URLs), why, where it's sent (email, PHP host, newsletter provider), how long it's kept, how to ask for deletion, and that we use no tracking cookies. Required before any form goes live (UK GDPR).
+- **Legal info page:** who runs the site and how to contact them (Open Collective fiscal host details, if any), plus disclaimers for the resource directory (third-party links, "Checked by us" isn't an endorsement). Check whether an Impressum-style notice is needed if anyone involved is based in Germany.
 - Domain.
 - Newsletter provider.
 - Build page: offer pay-what-you-can development publicly or "on request". The homepage Build card copy depends on this.

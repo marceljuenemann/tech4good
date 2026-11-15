@@ -1,0 +1,30 @@
+---
+// Wraps every site form: endpoint, form id, spam trap and the card styling.
+// The backend isn't built yet; see AGENTS.md ("Forms backend").
+import { formEndpoint } from '../config';
+
+interface Props {
+  /** Identifies the form to the backend, e.g. "careers". */
+  name: string;
+  /** id of the form's heading, for aria-labelledby. */
+  labelledby?: string;
+  label?: string;
+  class?: string;
+}
+
+const { name, labelledby, label, class: className } = Astro.props;
+---
+
+<form
+  class:list={['form-card', className]}
+  method="post"
+  action={formEndpoint}
+  aria-labelledby={labelledby}
+  aria-label={labelledby ? undefined : label}
+>
+  <input type="hidden" name="form" value={name} />
+  <div class="hp" aria-hidden="true">
+    <label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+  <slot />
+</form>

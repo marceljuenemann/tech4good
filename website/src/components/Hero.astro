@@ -1,0 +1,426 @@
+---
+import { Picture } from 'astro:assets';
+import Logo from './Logo.astro';
+import { heroPhotos } from '../data/photos';
+import { links, url } from '../config';
+---
+
+<section class="hero on-navy">
+  <div
+    class="photos"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Photos from our meetups"
+    data-carousel
+  >
+    {
+      heroPhotos.map((photo, i) => (
+        <div
+          class:list={['slide', { 'is-active': i === 0 }]}
+          aria-roledescription="slide"
+          aria-label={`${i + 1} of ${heroPhotos.length}`}
+          aria-hidden={i === 0 ? undefined : 'true'}
+          data-slide
+        >
+          <Picture
+            src={photo.src}
+            alt={photo.alt}
+            formats={['avif', 'webp']}
+            widths={[640, 960, 1280, 1600, 2048].filter((w) => w <= photo.src.width)}
+            sizes="(max-width: 760px) 100vw, 62vw"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
+            style={photo.position ? `object-position: ${photo.position}` : undefined}
+          />
+        </div>
+      ))
+    }
+    <div class="fade fade-left" aria-hidden="true"></div>
+    <div class="fade fade-bottom" aria-hidden="true"></div>
+    <div class="fade fade-top" aria-hidden="true"></div>
+
+    {
+      heroPhotos.length > 1 && (
+        <div class="controls">
+          <div class="dots">
+            {heroPhotos.map((_, i) => (
+              <button
+                type="button"
+                class="dot"
+                aria-label={`Show photo ${i + 1}`}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+                data-dot={i}
+              >
+                <span />
+              </button>
+            ))}
+          </div>
+          <button type="button" class="round" aria-label="Pause slideshow" data-pause>
+            <svg class="icon-pause" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="5" width="4" height="14" rx="1" />
+              <rect x="14" y="5" width="4" height="14" rx="1" />
+            </svg>
+            <svg class="icon-play" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" />
+            </svg>
+          </button>
+          <button type="button" class="round" aria-label="Previous photo" data-prev>
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6l-6 6 6 6" />
+            </svg>
+          </button>
+          <button type="button" class="round" aria-label="Next photo" data-next>
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="container inner">
+    <div class="copy">
+      <Logo size={132} class="hero-logo" eager />
+      <h1>Tech for Good Community <span class="accent">London</span></h1>
+      <p class="intro">
+        Monthly meetups for engineers, founders, charity teams, funders and the curious — swapping
+        ideas, finding collaborators and building things that matter.
+      </p>
+      <div class="ctas">
+        <a href={links.luma} class="btn btn-yellow btn-lg">See upcoming events</a>
+        <a href={url('/#help')} class="btn btn-outline-light btn-lg">How can we help?</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-carousel]');
+  const slides = root ? Array.from(root.querySelectorAll<HTMLElement>('[data-slide]')) : [];
+
+  if (root && slides.length > 1) {
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+    const pauseBtn = root.querySelector<HTMLButtonElement>('[data-pause]')!;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    let index = 0;
+    let timer: number | undefined;
+    // Paused by the user (button) vs. temporarily (hover/focus).
+    let userPaused = reduceMotion.matches;
+    let hoverPaused = false;
+
+    const show = (i: number) => {
+      index = (i + slides.length) % slides.length;
+      slides.forEach((slide, n) => {
+        const active = n === index;
+        slide.classList.toggle('is-active', active);
+        if (active) slide.removeAttribute('aria-hidden');
+        else slide.setAttribute('aria-hidden', 'true');
+      });
+      dots.forEach((dot, n) => dot.setAttribute('aria-pressed', String(n === index)));
+    };
+
+    const stop = () => {
+      window.clearInterval(timer);
+      timer = undefined;
+    };
+
+    const start = () => {
+      stop();
+      if (userPaused || hoverPaused) return;
+      timer = window.setInterval(() => show(index + 1), 5000);
+    };
+
+    const renderPause = () => {
+      pauseBtn.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+      pauseBtn.classList.toggle('is-paused', userPaused);
+    };
+
+    dots.forEach((dot) =>
+      dot.addEventListener('click', () => {
+        show(Number(dot.dataset.dot));
+        start();
+      }),
+    );
+    root.querySelector('[data-prev]')!.addEventListener('click', () => {
+      show(index - 1);
+      start();
+    });
+    root.querySelector('[data-next]')!.addEventListener('click', () => {
+      show(index + 1);
+      start();
+    });
+    pauseBtn.addEventListener('click', () => {
+      userPaused = !userPaused;
+      renderPause();
+      start();
+    });
+
+    const pauseTemporarily = (paused: boolean) => {
+      hoverPaused = paused;
+      start();
+    };
+    root.addEventListener('mouseenter', () => pauseTemporarily(true));
+    root.addEventListener('mouseleave', () => pauseTemporarily(false));
+    root.addEventListener('focusin', () => pauseTemporarily(true));
+    root.addEventListener('focusout', (e) => {
+      if (!root.contains(e.relatedTarget as Node)) pauseTemporarily(false);
+    });
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+    renderPause();
+    start();
+  }
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---------- Photos ---------- */
+  .photos {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 62%;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .slide.is-active {
+    opacity: 1;
+  }
+
+  .slide :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .fade-left {
+    background: linear-gradient(
+      to right,
+      var(--navy) 0%,
+      rgba(16, 32, 74, 0.75) 12%,
+      rgba(16, 32, 74, 0.2) 26%,
+      rgba(16, 32, 74, 0) 36%
+    );
+  }
+
+  .fade-bottom {
+    background: linear-gradient(to top, var(--navy) 0%, rgba(16, 32, 74, 0.6) 14%, rgba(16, 32, 74, 0) 38%);
+  }
+
+  .fade-top {
+    background: linear-gradient(to bottom, rgba(16, 32, 74, 0.55) 0%, rgba(16, 32, 74, 0) 18%);
+  }
+
+  /* ---------- Controls ---------- */
+  .controls {
+    display: none;
+    position: absolute;
+    right: 32px;
+    bottom: 92px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  :global(.js) .controls {
+    display: flex;
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .dot {
+    width: 32px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .dot span {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.75);
+    transition: width 0.3s, background-color 0.3s;
+  }
+
+  .dot[aria-pressed='true'] span {
+    width: 28px;
+    background: var(--yellow);
+  }
+
+  .round {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    background: rgba(16, 32, 74, 0.55);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .round:hover {
+    background: rgba(16, 32, 74, 0.8);
+  }
+
+  .icon-play,
+  .is-paused .icon-pause {
+    display: none;
+  }
+
+  .is-paused .icon-play {
+    display: block;
+  }
+
+  /* ---------- Copy ---------- */
+  .inner {
+    position: relative;
+    min-height: 520px;
+    padding-top: 32px;
+    padding-bottom: 160px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .copy {
+    max-width: 540px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    pointer-events: auto;
+  }
+
+  .copy :global(.hero-logo) {
+    width: 132px;
+    height: 132px;
+    border-radius: 26px;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 64px;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+  }
+
+  .accent {
+    color: var(--yellow);
+  }
+
+  .intro {
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--on-navy-muted);
+    max-width: 520px;
+  }
+
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 4px;
+  }
+
+  /* Tablet: the text overlaps more of the photo, so fade further and narrow the photo. */
+  @media (min-width: 761px) and (max-width: 1150px) {
+    .photos {
+      width: 55%;
+    }
+
+    .fade-left {
+      background: linear-gradient(
+        to right,
+        var(--navy) 0%,
+        rgba(16, 32, 74, 0.85) 20%,
+        rgba(16, 32, 74, 0.35) 40%,
+        rgba(16, 32, 74, 0) 55%
+      );
+    }
+
+    .copy {
+      max-width: 480px;
+    }
+
+    h1 {
+      font-size: 54px;
+    }
+  }
+
+  /* Mobile: photo banner on top, text below. */
+  @media (max-width: 760px) {
+    .photos {
+      position: relative;
+      width: 100%;
+      height: 320px;
+    }
+
+    .fade-left {
+      display: none;
+    }
+
+    .controls {
+      bottom: 20px;
+      right: 16px;
+    }
+
+    .inner {
+      min-height: 0;
+      padding-top: 8px;
+      padding-bottom: 112px;
+    }
+
+    .copy :global(.hero-logo) {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      margin-top: -52px;
+      box-shadow: 0 0 0 4px var(--navy);
+    }
+
+    h1 {
+      font-size: 44px;
+    }
+
+    .intro {
+      font-size: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide,
+    .dot span {
+      transition: none;
+    }
+  }
+</style>

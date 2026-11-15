@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import FormShell from '../components/FormShell.astro';
+import { links, url } from '../config';
+
+// TODO: pick these from the resources YAML by name once it exists.
+const groups = [
+  {
+    title: 'Tech for good & impact',
+    items: [
+      { name: 'Good Tech', url: 'https://www.goodtech.ventures/', description: 'Community for early-stage tech-for-good startups.' },
+      { name: 'Impact Connect', url: 'https://impactconnect.compassio.co/', description: 'Monthly one-to-one matching for impact professionals.' },
+      { name: 'London EA Entrypoints', url: 'https://london-ea-community-map.netlify.app/', description: 'Directory of London effective altruism groups.' },
+      { name: 'Newspeak House', url: 'https://newspeak.house/', description: 'Residential college for civic technologists.' },
+    ],
+  },
+  {
+    title: 'Diversity & inclusion',
+    items: [
+      { name: 'Women in Data', url: 'https://www.womenindata.co.uk/', description: 'UK community for women in data and AI.' },
+      { name: 'Colorintech', url: 'https://www.colorintech.org/', description: 'London nonprofit for ethnic minority tech talent.' },
+      { name: 'Coding Black Females', url: 'https://codingblackfemales.com/', description: 'UK community for Black women in tech.' },
+      { name: 'Out in Tech', url: 'https://outintech.com/', description: 'Global LGBTQ+ tech community.' },
+    ],
+  },
+  {
+    title: 'By cause',
+    items: [
+      { name: 'LIaiSE', url: 'https://liaiseai.xyz/', description: 'AI safety — mentoring and events for newcomers.' },
+      { name: 'ClimateAction.tech', url: 'https://climateaction.tech/', description: 'Climate — tech workers taking action.' },
+      { name: 'One HealthTech', url: 'https://www.onehealthtech.com/', description: 'Health — diversity in health innovation.' },
+      { name: 'TechSoup Connect', url: 'https://events.techsoup.org/techsoup-connect-england-chapter/', description: 'Charities — volunteer-run nonprofit tech meetups.' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Find your people" current="community">
+  <PageIntro title="Find your people" crumb="Community">
+    Come to a monthly meetup, join our WhatsApp group, or explore the other communities across London
+    working on the causes you care about.
+  </PageIntro>
+
+  <section class="join">
+    <div class="container join-row">
+      <div class="meetup on-navy">
+        <h2>Come to a meetup</h2>
+        <p>We meet in person every month somewhere in London. It’s the easiest way to meet people — just turn up.</p>
+        <a href={links.luma} class="btn btn-yellow btn-lg">See events on Luma</a>
+      </div>
+
+      <FormShell name="community" labelledby="wa-title" class="whatsapp">
+        <h2 id="wa-title">Join the WhatsApp group</h2>
+        <p class="intro">
+          Leave your details and one of the organisers will add you. We check each request so the group
+          stays friendly and spam-free.
+        </p>
+        <div class="field-grid">
+          <label class="field">Name<input class="input" type="text" name="name" autocomplete="name" required /></label>
+          <label class="field">
+            Mobile number
+            <input class="input" type="tel" name="phone" autocomplete="tel" placeholder="+44 7…" required />
+          </label>
+        </div>
+        <label class="field">
+          LinkedIn profile
+          <input class="input" type="url" name="linkedin" placeholder="https://linkedin.com/in/…" required />
+        </label>
+        <label class="field">
+          <span>What brings you here? <span class="optional">(optional)</span></span>
+          <textarea class="input" name="message" rows="3"></textarea>
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="consent" required />
+          <span>
+            I’ve read the <a href={links.codeOfConduct}>code of conduct</a> and agree to my number being used
+            to add me to the group.
+          </span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg submit">Request to join</button>
+      </FormShell>
+    </div>
+  </section>
+
+  <section class="others" aria-labelledby="others-title">
+    <div class="container stack">
+      <div class="heading">
+        <h2 id="others-title">Other communities we love</h2>
+        <p class="lead">
+          A starting point — the full list is in the <a href={url('/resources/?category=communities')}>resources directory</a>.
+        </p>
+      </div>
+      <div class="groups">
+        {
+          groups.map((group) => (
+            <div class="group">
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li>
+                    <a href={item.url}>{item.name}</a>
+                    <span>{item.description}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .join {
+    padding: 64px 0 72px;
+  }
+
+  .join-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  .meetup {
+    flex: 1 1 340px;
+    min-width: 0;
+    border-radius: var(--radius-panel);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .meetup h2 {
+    font-size: 30px;
+    line-height: 1.15;
+    color: var(--yellow);
+  }
+
+  .meetup p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--on-navy-muted);
+  }
+
+  .meetup .btn {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  .join-row > :global(.whatsapp) {
+    flex: 2 1 560px;
+  }
+
+  .submit {
+    align-self: flex-start;
+  }
+
+  .others {
+    padding: 0 0 96px;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .heading h2 {
+    font-size: 36px;
+  }
+
+  .groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .group {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    padding: 28px;
+  }
+
+  .group h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .group li {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+  }
+
+  .group a {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .group span {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 760px) {
+    .meetup {
+      padding: 28px 24px;
+    }
+
+    .heading h2 {
+      font-size: 30px;
+    }
+
+    .group {
+      padding: 24px;
+    }
+  }
+</style>

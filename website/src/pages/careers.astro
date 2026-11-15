@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import LinkList from '../components/LinkList.astro';
+import FormShell from '../components/FormShell.astro';
+import { url } from '../config';
+
+// TODO: pick these from the resources YAML by name once it exists.
+const lists = [
+  {
+    title: 'Impact job boards',
+    items: [
+      { name: 'Escape the City', url: 'https://www.escapethecity.org/', description: 'Curated purpose-driven jobs, courses and events.' },
+      { name: '80,000 Hours', url: 'https://80000hours.org/', description: 'Career advice and a job board, with many AI safety roles.' },
+      { name: 'High Impact Professionals', url: 'https://www.highimpactprofessionals.org/', description: 'Accelerator, talent directory and job board for impact careers.' },
+      { name: 'Climatebase', url: 'https://climatebase.org/', description: 'Climate job board with many London roles.' },
+      { name: 'Diversity in Tech', url: 'https://www.diversityintech.co.uk/', description: 'Career advice and jobs for diverse UK tech talent.' },
+    ],
+  },
+  {
+    title: 'Learn and switch',
+    items: [
+      { name: 'Work on Climate', url: 'https://workonclimate.org/', description: 'Community and resources for climate careers.' },
+      { name: 'Terra.do', url: 'https://terra.do/', description: 'Climate courses and a career community.' },
+      { name: 'BlueDot Impact', url: 'https://bluedot.org/', description: 'Free AI safety and governance courses.' },
+      { name: 'Founders and Coders', url: 'https://www.foundersandcoders.com/', description: 'Free peer-led coding bootcamp with a tech-for-good focus.' },
+      { name: 'CodeYourFuture', url: 'https://www.codeyourfuture.io/', description: 'Free coding training for refugees and low-income learners.' },
+    ],
+  },
+  {
+    title: 'Try it out first',
+    items: [
+      { name: 'Reach Volunteering', url: 'https://reachvolunteering.org.uk/', description: 'Skilled volunteering with charities, many roles in IT and data.' },
+      { name: 'For Good First Issue', url: 'https://forgoodfirstissue.github.com/', description: 'Social-good open-source projects looking for contributors.' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Careers in Tech for Good" current="help">
+  <PageIntro title="Careers in Tech for Good" crumb="Careers">
+    Whether you’re moving into impact work, moving into tech, or just starting out — here’s where to
+    look, and how we can help you think it through.
+  </PageIntro>
+
+  <section class="body">
+    <div class="container split">
+      <div class="main lists">
+        {lists.map((list) => <LinkList title={list.title} items={list.items} />)}
+        <a href={url('/resources/')} class="more-link">See all resources →</a>
+      </div>
+
+      <FormShell name="careers" labelledby="coach-title" class="side">
+        <span class="badge badge-yellow">Free</span>
+        <h2 id="coach-title">Book a career coaching session</h2>
+        <p class="intro">
+          Tell us a little about yourself and we’ll try to match you with a volunteer coach from the community.
+        </p>
+        <label class="field">Name<input class="input" type="text" name="name" autocomplete="name" required /></label>
+        <label class="field">Email<input class="input" type="email" name="email" autocomplete="email" required /></label>
+        <label class="field">
+          <span>LinkedIn profile <span class="optional">(optional)</span></span>
+          <input class="input" type="url" name="linkedin" placeholder="https://linkedin.com/in/…" />
+        </label>
+        <label class="field">
+          Where are you now?
+          <select class="input" name="situation">
+            <option>Working in tech, want more impact</option>
+            <option>Working in impact, want to move into tech</option>
+            <option>Studying or just starting out</option>
+            <option>Between roles or on a career break</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="field">
+          What would you like help with?
+          <textarea class="input" name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg">Request a session</button>
+        <p class="note">Coaches are volunteers, so we can’t promise a match — but we’ll always reply.</p>
+      </FormShell>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .body {
+    padding: 64px 0 96px;
+  }
+
+  .lists {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .lists > :global(.link-list) {
+    width: 100%;
+  }
+</style>

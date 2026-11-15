@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import LinkList from '../components/LinkList.astro';
+import FormShell from '../components/FormShell.astro';
+import { url } from '../config';
+
+// TODO: pick these from the resources YAML by name once it exists.
+const lists = [
+  {
+    title: 'Grants',
+    items: [
+      { name: 'GrantMatch', url: 'https://www.grantmatch.co.uk/grants', description: 'Searchable UK grants, filterable by organisation type, sector and region.' },
+      { name: '360Giving GrantNav', url: 'https://grantnav.threesixtygiving.org/', description: 'Data on past UK grants — useful for finding the right funders.' },
+      { name: 'UnLtd', url: 'https://www.unltd.org.uk/', description: 'Grants and mentoring for individual social entrepreneurs.' },
+      { name: 'EA Funds', url: 'https://funds.effectivealtruism.org/', description: 'Grant funds open to individuals and early projects.' },
+    ],
+  },
+  {
+    title: 'Accelerators and investors',
+    items: [
+      { name: 'Bethnal Green Ventures', url: 'https://bethnalgreenventures.com/', description: 'Early-stage tech-for-good investor; runs coffee events.' },
+      { name: 'ImpactVC', url: 'https://www.impactvc.co/', description: 'Network for impact-focused VCs.' },
+      { name: 'Social Tech Trust', url: 'https://socialtechtrust.org/', description: 'Impact investor for early-stage tech ventures.' },
+      { name: 'Good Finance', url: 'https://www.goodfinance.org.uk/', description: 'Guides and a directory of social investors.' },
+    ],
+  },
+  {
+    title: 'Crowdfunding',
+    items: [
+      { name: 'Crowdfunder', url: 'https://www.crowdfunder.co.uk/', description: 'UK crowdfunding platform popular with social projects.' },
+      { name: 'Manifund', url: 'https://manifund.org/', description: 'Fast regranting and community funding, mostly EA and AI safety.' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Funding" current="help">
+  <PageIntro title="Funding" crumb="Funding">
+    Grants, accelerators, impact investors and crowdfunding. Start with the guides below — and if
+    you’re ready to raise, we can introduce you to people in our community who work in impact VC.
+  </PageIntro>
+
+  <section class="body">
+    <div class="container split">
+      <div class="main lists">
+        <p class="callout">
+          New to this? Start with GOV.UK’s guide to{' '}
+          <a href="https://www.gov.uk/set-up-a-social-enterprise">setting up a social enterprise</a> to compare
+          legal structures — it affects which funding you can apply for.
+        </p>
+        {lists.map((list) => <LinkList title={list.title} items={list.items} />)}
+        <a href={url('/resources/?category=funding')} class="more-link">See all funding resources →</a>
+      </div>
+
+      <FormShell name="funding" labelledby="fund-title" class="side">
+        <h2 id="fund-title">Get an intro to impact investors</h2>
+        <p class="intro">
+          Tell us what you’re building. If there’s a good fit, we’ll ask before passing your details to anyone.
+        </p>
+        <label class="field">Name<input class="input" type="text" name="name" autocomplete="name" required /></label>
+        <label class="field">Email<input class="input" type="email" name="email" autocomplete="email" required /></label>
+        <label class="field">Venture name and website<input class="input" type="text" name="venture" required /></label>
+        <label class="field">
+          Stage
+          <select class="input" name="stage">
+            <option>Idea</option>
+            <option>Pre-seed</option>
+            <option>Seed</option>
+            <option>Series A or later</option>
+            <option>Grant-funded non-profit</option>
+          </select>
+        </label>
+        <label class="field">
+          What are you looking for?
+          <textarea
+            class="input"
+            name="message"
+            rows="4"
+            required
+            placeholder="e.g. raising a £250k pre-seed round, or looking for grant funders in health"
+          ></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg">Request an intro</button>
+      </FormShell>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .body {
+    padding: 64px 0 96px;
+  }
+
+  .lists {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .lists > :global(.link-list) {
+    width: 100%;
+  }
+
+  .callout {
+    background: var(--soft-yellow);
+    border: 1px solid var(--soft-yellow-border);
+    border-radius: var(--radius-card-sm);
+    padding: 20px 24px;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .callout a {
+    font-weight: 600;
+  }
+</style>

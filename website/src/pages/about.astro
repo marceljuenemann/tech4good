@@ -1,0 +1,361 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/Logo.astro';
+import { links, url } from '../config';
+
+const whatWeDo = [
+  { title: 'Monthly meetups', text: 'In-person events across London to meet, learn and collaborate.' },
+  { title: 'WhatsApp group', text: 'Jobs, events and questions shared between meetups.' },
+  { title: 'Resource directory', text: 'An open, community-maintained map of London’s tech-for-good world.' },
+  { title: 'Introductions', text: 'Connecting people who need help with people who can give it.' },
+];
+
+// TODO: organiser names, roles and photos.
+const organisers = [
+  { name: 'Marcel', role: 'Founder and organiser', initial: 'M' },
+  { name: '[NAME]', role: '[ROLE]' },
+  { name: '[NAME]', role: '[ROLE]' },
+  { name: '[NAME]', role: '[ROLE]' },
+];
+
+// TODO: partner and venue-host logos.
+const partners = ['[PARTNER LOGO]', '[PARTNER LOGO]', '[PARTNER LOGO]', '[PARTNER LOGO]'];
+---
+
+<BaseLayout title="About us" current="about">
+  <section class="about-hero on-navy">
+    <div class="container hero-row">
+      <div class="hero-copy">
+        <p class="eyebrow">About us</p>
+        <h1>Good people, good tech, good company.</h1>
+        <p class="hero-lead">
+          We’re a volunteer-run community bringing together everyone in London who wants technology to make
+          life better.
+        </p>
+      </div>
+      <div class="hero-logo">
+        <Logo size={360} variant="wordmark" alt="Tech for Good Community London logo" class="wordmark" eager />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container story">
+      <h2>Our story</h2>
+      <p>[HOW IT STARTED — when and why the first meetup happened, and who was in the room.]</p>
+      <p>
+        [WHAT CHANGED — how the community grew, the WhatsApp group, the resource list, the moment it became
+        more than a meetup.]
+      </p>
+      <p>[WHERE WE’RE GOING — what you hope the community does next.]</p>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container stack">
+      <h2 class="h2">What we do</h2>
+      <ul class="grid what" role="list">
+        {
+          whatWeDo.map((item) => (
+            <li class="what-card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container stack">
+      <h2 class="h2">Organisers</h2>
+      <ul class="grid people" role="list">
+        {
+          organisers.map((person) => (
+            <li class="person">
+              <div class="photo" aria-hidden="true">
+                {person.initial ?? '[PHOTO]'}
+              </div>
+              <span class="person-name">{person.name}</span>
+              <span class="person-role">{person.role}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="support-section">
+    <div class="container">
+      <div class="support on-navy">
+        <div class="support-copy">
+          <h2>Support the community</h2>
+          <p>
+            We’re funded transparently through Open Collective — every donation and every expense is public.
+            Donations help cover [WHAT DONATIONS PAY FOR, e.g. venues, food, tools].
+          </p>
+        </div>
+        <a href={links.openCollective} class="btn btn-yellow btn-lg">Donate on Open Collective</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners-section">
+    <div class="container stack partners-stack">
+      <h2 class="partners-title">Thanks to our venue hosts and partners</h2>
+      <ul class="partners" role="list">
+        {partners.map((p) => <li class="partner">{p}</li>)}
+      </ul>
+      <p class="muted">
+        Want to host a meetup? <a href={url('/contact/')}>Get in touch</a>. Everyone at our events agrees to our{' '}
+        <a href={links.codeOfConduct}>code of conduct</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-row {
+    padding-top: 56px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .hero-copy {
+    flex: 1 1 520px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 56px;
+    line-height: 1.06;
+  }
+
+  .hero-lead {
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--on-navy-muted);
+    max-width: 560px;
+  }
+
+  .hero-logo {
+    flex: 0 1 360px;
+    min-width: 240px;
+  }
+
+  .hero-logo :global(.wordmark) {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 28px;
+  }
+
+  .story {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .story h2 {
+    font-size: 40px;
+  }
+
+  .story p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--body-soft);
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .h2 {
+    font-size: 40px;
+  }
+
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 20px;
+  }
+
+  .what {
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  }
+
+  .what-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .what-card h3 {
+    font-size: 22px;
+  }
+
+  .what-card p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .people {
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 24px;
+  }
+
+  .person {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .photo {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-card);
+    background: var(--surface-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--link);
+  }
+
+  .person:first-child .photo {
+    font-size: 40px;
+  }
+
+  .person-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .person-role {
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .support-section {
+    padding-bottom: 88px;
+  }
+
+  .support {
+    border-radius: var(--radius-panel);
+    padding: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .support-copy {
+    flex: 1 1 520px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .support h2 {
+    font-size: 36px;
+    color: var(--yellow);
+  }
+
+  .support p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--on-navy-muted);
+    max-width: 620px;
+  }
+
+  .partners-section {
+    padding-bottom: 96px;
+  }
+
+  .partners-stack {
+    gap: 24px;
+  }
+
+  .partners-title {
+    font-size: 28px;
+  }
+
+  .partners {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+    gap: 16px;
+  }
+
+  .partner {
+    height: 96px;
+    border: 1.5px dashed var(--input-border);
+    border-radius: var(--radius-card-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .partners-stack a {
+    font-weight: 600;
+  }
+
+  @media (max-width: 760px) {
+    .hero-row {
+      padding-top: 40px;
+      padding-bottom: 56px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .hero-lead {
+      font-size: 18px;
+    }
+
+    .hero-logo {
+      min-width: 0;
+      flex-basis: 220px;
+    }
+
+    .story h2,
+    .h2 {
+      font-size: 32px;
+    }
+
+    .support {
+      padding: 32px 24px;
+    }
+
+    .support h2 {
+      font-size: 30px;
+    }
+  }
+</style>

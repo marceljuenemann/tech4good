@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import LinkList from '../components/LinkList.astro';
+import FormShell from '../components/FormShell.astro';
+import { url } from '../config';
+
+const offers = [
+  {
+    title: 'Pro bono advice',
+    text: 'A free first conversation to shape your idea: scope, tech choices, build-or-buy, and what it might realistically cost.',
+  },
+  {
+    title: 'Intros to builders',
+    text: 'We’ll introduce you to developers, designers and data people in the community who want to work on things that matter.',
+  },
+  {
+    // TODO: decide whether pay-what-you-can is offered publicly or "on request".
+    title: 'Pay-what-you-can builds',
+    text: 'For the right project, we can build it with you — priced on what your organisation can afford.',
+    highlight: true,
+  },
+];
+
+const needs = ['Advice', 'Design', 'Website or app', 'Data or AI', 'Not sure yet'];
+
+// TODO: pick these from the resources YAML by name once it exists.
+const otherHelp = [
+  { name: 'Tech To The Rescue', url: 'https://www.techtotherescue.org/', description: 'Connects nonprofits with tech companies and funders.' },
+  { name: 'DataKind UK', url: 'https://datakind.org.uk/', description: 'Volunteer data scientists for charities.' },
+  { name: 'CAST', url: 'https://www.wearecast.org.uk/', description: 'Helps charities use digital to deliver their missions.' },
+  { name: 'Catalyst', url: 'https://www.thecatalyst.org.uk/', description: 'Network building digital capability in UK charities.' },
+  { name: 'Reach Volunteering', url: 'https://reachvolunteering.org.uk/', description: 'Find skilled volunteers for IT and data roles.' },
+  { name: 'Digital Boost', url: 'https://digitalboost.org.uk/', description: 'Mentoring for small businesses and charities.' },
+];
+---
+
+<BaseLayout title="Build your idea" current="help">
+  <PageIntro title="Build your idea" crumb="Build your idea">
+    For charities, non-profits, social enterprises and impact founders. We’ll connect you with people
+    who love building for impact — and help you work out what you actually need.
+  </PageIntro>
+
+  <section class="offers-section">
+    <ol class="container offers">
+      {
+        offers.map((offer, i) => (
+          <li class:list={['offer', { highlight: offer.highlight }]}>
+            <span class="num" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h2>{offer.title}</h2>
+            <p>{offer.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="body">
+    <div class="container split">
+      <FormShell name="build" labelledby="build-title" class="main">
+        <h2 id="build-title">Tell us about your project</h2>
+        <div class="field-grid">
+          <label class="field">Name<input class="input" type="text" name="name" autocomplete="name" required /></label>
+          <label class="field">Email<input class="input" type="email" name="email" autocomplete="email" required /></label>
+          <label class="field">Organisation or project<input class="input" type="text" name="organisation" autocomplete="organization" /></label>
+          <label class="field">
+            You are a…
+            <select class="input" name="type">
+              <option>Charity</option>
+              <option>Non-profit or CIC</option>
+              <option>Social enterprise</option>
+              <option>Early-stage impact founder</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="field">
+            Where are you at?
+            <select class="input" name="stage">
+              <option>Just an idea</option>
+              <option>Have a plan</option>
+              <option>Building something</option>
+              <option>Already running, need to improve it</option>
+            </select>
+          </label>
+          <label class="field">
+            Budget
+            <select class="input" name="budget">
+              <option>No budget yet</option>
+              <option>A small budget</option>
+              <option>A defined budget</option>
+              <option>Prefer to discuss</option>
+            </select>
+          </label>
+        </div>
+        <fieldset class="choices">
+          <legend>What do you need? <span class="optional">(pick any)</span></legend>
+          <div class="chip-options">
+            {
+              needs.map((need) => (
+                <label class="chip-option">
+                  <input type="checkbox" name="needs" value={need} />
+                  {need}
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+        <label class="field">
+          Describe the problem you’re solving
+          <textarea class="input" name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg submit">Send project details</button>
+      </FormShell>
+
+      <aside class="side other-help" aria-label="Other places to get help">
+        <LinkList title="Other places to get help" items={otherHelp} headingSize="sm" />
+        <a href={url('/resources/')} class="more-link">See all resources →</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .offers-section {
+    padding-top: 64px;
+  }
+
+  .offers {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .offer {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .offer.highlight {
+    background: var(--soft-yellow);
+  }
+
+  .num {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--link);
+  }
+
+  .offer h2 {
+    font-size: 24px;
+  }
+
+  .offer p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .body {
+    padding: 64px 0 96px;
+  }
+
+  .optional {
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .submit {
+    align-self: flex-start;
+  }
+
+  .other-help {
+    flex-basis: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .other-help > :global(.link-list) {
+    width: 100%;
+  }
+</style>
